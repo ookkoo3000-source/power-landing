@@ -136,6 +136,22 @@
   .foot-sns a{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;font-size:14px;}
   .foot-sns a:hover{background:var(--coral);}
   .foot-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:22px;font-size:12.5px;color:#8080A8;}
+
+  /* motion */
+  @media (prefers-reduced-motion: no-preference){
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+    @keyframes softPop{from{opacity:0;transform:scale(.95);}to{opacity:1;transform:scale(1);}}
+    .blog-card{opacity:0;transform:translateY(22px);}
+    section.in-view .blog-card{animation:fadeInUp .6s cubic-bezier(.22,1,.36,1) forwards;}
+    section.in-view .blog-grid>*:nth-child(2){animation-delay:.07s;}
+    section.in-view .blog-grid>*:nth-child(3){animation-delay:.14s;}
+    .empty-state{opacity:0;transform:scale(.95);}
+    section.in-view .empty-state{animation:softPop .6s cubic-bezier(.22,1,.36,1) forwards;}
+    .blog-card{transition:transform .25s ease, box-shadow .25s ease;}
+    .filter-btn{transition:transform .15s ease, border-color .15s ease, color .15s ease, background .15s ease;}
+    .filter-btn:active{transform:scale(.96);}
+    html{scroll-behavior:smooth;}
+  }
 </style>
 </head>
 <body>
@@ -278,6 +294,20 @@
   document.getElementById('burgerBtn').addEventListener('click', function(){
     window.location.href = 'index.html#lead-form';
   });
+
+  if ('IntersectionObserver' in window) {
+    var revealIO = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          revealIO.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('main section').forEach(function(sec){ revealIO.observe(sec); });
+  } else {
+    document.querySelectorAll('main section').forEach(function(sec){ sec.classList.add('in-view'); });
+  }
 </script>
 
 </body>

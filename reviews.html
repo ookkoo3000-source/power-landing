@@ -209,6 +209,26 @@
   .foot-sns a{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;font-size:14px;}
   .foot-sns a:hover{background:var(--coral);}
   .foot-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:22px;font-size:12.5px;color:#8080A8;}
+
+  /* motion */
+  @media (prefers-reduced-motion: no-preference){
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+    @keyframes softPop{from{opacity:0;transform:scale(.95);}to{opacity:1;transform:scale(1);}}
+    .testi-card, .case-card{opacity:0;transform:translateY(22px);}
+    section.in-view .testi-card, section.in-view .case-card{animation:fadeInUp .6s cubic-bezier(.22,1,.36,1) forwards;}
+    section.in-view .case-grid>*:nth-child(2), section.in-view .testi-grid>*:nth-child(2){animation-delay:.07s;}
+    section.in-view .case-grid>*:nth-child(3), section.in-view .testi-grid>*:nth-child(3){animation-delay:.14s;}
+    section.in-view .case-grid>*:nth-child(4){animation-delay:.21s;}
+    section.in-view .case-grid>*:nth-child(5){animation-delay:.28s;}
+    section.in-view .case-grid>*:nth-child(6){animation-delay:.35s;}
+    .showcase, .more-note{opacity:0;transform:scale(.96);}
+    section.in-view .showcase, section.in-view .more-note{animation:softPop .6s cubic-bezier(.22,1,.36,1) forwards;}
+    .testi-card, .case-card, .showcase{transition:transform .25s ease, box-shadow .25s ease;}
+    .modal-box{animation:softPop .3s cubic-bezier(.22,1,.36,1);}
+    .filter-btn{transition:transform .15s ease, border-color .15s ease, color .15s ease, background .15s ease;}
+    .filter-btn:active{transform:scale(.96);}
+    html{scroll-behavior:smooth;}
+  }
 </style>
 </head>
 <body>
@@ -580,6 +600,20 @@
   mClose.addEventListener('click', closeReview);
   mOverlay.addEventListener('click', function(e){ if(e.target === mOverlay) closeReview(); });
   document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeReview(); });
+
+  if ('IntersectionObserver' in window) {
+    var revealIO = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          revealIO.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('main section').forEach(function(sec){ revealIO.observe(sec); });
+  } else {
+    document.querySelectorAll('main section').forEach(function(sec){ sec.classList.add('in-view'); });
+  }
 </script>
 
 </body>

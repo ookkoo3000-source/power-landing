@@ -362,6 +362,65 @@
   .foot-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:22px;font-size:12.5px;color:#8080A8;}
 
   .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);}
+
+  /* motion */
+  @media (prefers-reduced-motion: no-preference){
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+    @keyframes floatY{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+    @keyframes pulseGlow{0%,100%{box-shadow:0 10px 24px rgba(255,107,77,.35);}50%{box-shadow:0 14px 32px rgba(255,107,77,.55);}}
+    @keyframes softPop{from{opacity:0;transform:scale(.94);}to{opacity:1;transform:scale(1);}}
+
+    .value-card, .feature-card, .problem-card, .teacher-card, .testi-card,
+    .why-card, .video-card, .process-step, .showcase-inline{
+      opacity:0;transform:translateY(22px);
+    }
+    section.in-view .value-card, section.in-view .feature-card, section.in-view .problem-card,
+    section.in-view .teacher-card, section.in-view .testi-card, section.in-view .why-card,
+    section.in-view .video-card, section.in-view .process-step{
+      animation:fadeInUp .65s cubic-bezier(.22,1,.36,1) forwards;
+    }
+    section.in-view .values-grid>*:nth-child(2),
+    section.in-view .features-grid>*:nth-child(2), section.in-view .why-grid>*:nth-child(2),
+    section.in-view .video-grid>*:nth-child(2), section.in-view .process-grid>*:nth-child(2),
+    section.in-view .problem-grid>*:nth-child(2), section.in-view .teachers-grid>*:nth-child(2),
+    section.in-view .testi-grid>*:nth-child(2){animation-delay:.08s;}
+    section.in-view .values-grid>*:nth-child(3),
+    section.in-view .features-grid>*:nth-child(3), section.in-view .why-grid>*:nth-child(3),
+    section.in-view .video-grid>*:nth-child(3), section.in-view .process-grid>*:nth-child(3),
+    section.in-view .problem-grid>*:nth-child(3), section.in-view .teachers-grid>*:nth-child(3),
+    section.in-view .testi-grid>*:nth-child(3){animation-delay:.16s;}
+    section.in-view .features-grid>*:nth-child(4), section.in-view .why-grid>*:nth-child(4),
+    section.in-view .teachers-grid>*:nth-child(4){animation-delay:.24s;}
+    section.in-view .features-grid>*:nth-child(5),
+    section.in-view .teachers-grid>*:nth-child(5){animation-delay:.32s;}
+    section.in-view .features-grid>*:nth-child(6),
+    section.in-view .teachers-grid>*:nth-child(6){animation-delay:.4s;}
+
+    section.in-view .level-table-wrap, section.in-view .lead-box, section.in-view .more-note{
+      animation:softPop .6s cubic-bezier(.22,1,.36,1) forwards;
+    }
+    .level-table-wrap, .lead-box{opacity:0;transform:scale(.97);}
+
+    .collage-photos .cphoto{animation:floatY 4.5s ease-in-out infinite;}
+    .collage-photos .p1{animation-delay:0s;}
+    .collage-photos .p2{animation-delay:.3s;}
+    .collage-photos .p3{animation-delay:.6s;}
+    .collage-photos .p4{animation-delay:.9s;}
+    .collage-photos .p5{animation-delay:1.2s;}
+    .hero-cta .btn-primary{animation:pulseGlow 2.8s ease-in-out infinite;}
+    .hero-cta .btn-primary:hover{animation:none;}
+    .hero-card{transition:transform .3s ease;}
+    .hero-card:hover{transform:translateY(-4px);}
+
+    .value-card, .feature-card, .why-card, .video-card{transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;}
+    .track-chip{transition:transform .2s ease, box-shadow .2s ease;}
+    .track-chip:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg);}
+    .stat{transition:transform .2s ease;}
+    .stat:hover{transform:translateY(-2px);}
+    .faq-q{transition:color .2s ease;}
+    .faq-item:hover .faq-q{color:var(--coral-dark);}
+    html{scroll-behavior:smooth;}
+  }
 </style>
 </head>
 <body>
@@ -926,6 +985,21 @@
   document.getElementById('burgerBtn').addEventListener('click', function(){
     document.getElementById('lead-form').scrollIntoView({behavior:'smooth'});
   });
+
+  // Scroll-reveal: fade sections in as they enter the viewport
+  if ('IntersectionObserver' in window) {
+    var revealIO = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          revealIO.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('main section').forEach(function(sec){ revealIO.observe(sec); });
+  } else {
+    document.querySelectorAll('main section').forEach(function(sec){ sec.classList.add('in-view'); });
+  }
 </script>
 
 </body>
