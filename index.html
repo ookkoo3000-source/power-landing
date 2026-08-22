@@ -365,20 +365,53 @@
 
   /* motion */
   @media (prefers-reduced-motion: no-preference){
-    @keyframes fadeInUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
-    @keyframes floatY{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
-    @keyframes pulseGlow{0%,100%{box-shadow:0 10px 24px rgba(255,107,77,.35);}50%{box-shadow:0 14px 32px rgba(255,107,77,.55);}}
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(38px) scale(.94);}to{opacity:1;transform:translateY(0) scale(1);}}
+    @keyframes floatY{0%,100%{transform:translateY(0) rotate(var(--rot,0deg));}50%{transform:translateY(-12px) rotate(var(--rot,0deg));}}
+    @keyframes pulseGlow{0%,100%{box-shadow:0 10px 24px rgba(255,107,77,.35);transform:scale(1);}50%{box-shadow:0 16px 38px rgba(255,107,77,.6);transform:scale(1.03);}}
     @keyframes softPop{from{opacity:0;transform:scale(.94);}to{opacity:1;transform:scale(1);}}
+    @keyframes dropIn{from{opacity:0;transform:translateY(-24px);}to{opacity:1;transform:translateY(0);}}
+    @keyframes slideInLeft{from{opacity:0;transform:translateX(-32px);}to{opacity:1;transform:translateX(0);}}
+    @keyframes drawLine{from{width:0;}to{width:56px;}}
+    @keyframes shimmer{0%{background-position:-200% 0;}100%{background-position:200% 0;}}
+    @keyframes badgeBounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
 
     .value-card, .feature-card, .problem-card, .teacher-card, .testi-card,
     .why-card, .video-card, .process-step, .showcase-inline{
-      opacity:0;transform:translateY(22px);
+      opacity:0;transform:translateY(38px) scale(.94);
     }
     section.in-view .value-card, section.in-view .feature-card, section.in-view .problem-card,
     section.in-view .teacher-card, section.in-view .testi-card, section.in-view .why-card,
     section.in-view .video-card, section.in-view .process-step{
-      animation:fadeInUp .65s cubic-bezier(.22,1,.36,1) forwards;
+      animation:fadeInUp .7s cubic-bezier(.34,1.56,.64,1) forwards;
     }
+
+    /* section titles: underline draws in + slight drop-in */
+    h2.section-title{position:relative;}
+    section h2.section-title{opacity:0;transform:translateY(-16px);}
+    section.in-view h2.section-title{animation:dropIn .5s ease forwards;}
+    section h2.section-title::after{
+      content:"";display:block;width:0;height:4px;border-radius:4px;
+      background:linear-gradient(90deg,var(--coral),var(--teal));margin:14px auto 0;
+    }
+    section.in-view h2.section-title::after{animation:drawLine .6s ease .3s forwards;}
+
+    /* hero entrance */
+    .hero-copy .eyebrow{animation:badgeBounce 2.2s ease-in-out .8s infinite;}
+    .hero-copy h1{animation:slideInLeft .7s cubic-bezier(.22,1,.36,1) both;}
+    .hero-copy .lead{animation:fadeInUp .7s cubic-bezier(.22,1,.36,1) .12s both;}
+    .hero-cta{animation:fadeInUp .7s cubic-bezier(.22,1,.36,1) .22s both;}
+    .trust-row{animation:fadeInUp .7s cubic-bezier(.22,1,.36,1) .32s both;}
+    .hero-collage{animation:fadeInUp .7s cubic-bezier(.22,1,.36,1) .42s both;}
+    .hero-card{animation:softPop .7s cubic-bezier(.34,1.56,.64,1) .3s both;}
+
+    /* button shimmer sweep */
+    .btn-primary{position:relative;overflow:hidden;}
+    .btn-primary::before{
+      content:"";position:absolute;inset:0;
+      background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.45) 50%,transparent 70%);
+      background-size:200% 100%;background-position:200% 0;
+    }
+    .btn-primary:hover::before{animation:shimmer 1.1s ease;}
     section.in-view .values-grid>*:nth-child(2),
     section.in-view .features-grid>*:nth-child(2), section.in-view .why-grid>*:nth-child(2),
     section.in-view .video-grid>*:nth-child(2), section.in-view .process-grid>*:nth-child(2),
@@ -402,23 +435,39 @@
     .level-table-wrap, .lead-box{opacity:0;transform:scale(.97);}
 
     .collage-photos .cphoto{animation:floatY 4.5s ease-in-out infinite;}
-    .collage-photos .p1{animation-delay:0s;}
-    .collage-photos .p2{animation-delay:.3s;}
-    .collage-photos .p3{animation-delay:.6s;}
-    .collage-photos .p4{animation-delay:.9s;}
-    .collage-photos .p5{animation-delay:1.2s;}
-    .hero-cta .btn-primary{animation:pulseGlow 2.8s ease-in-out infinite;}
+    .collage-photos .p1{--rot:-4deg;animation-delay:0s;}
+    .collage-photos .p2{--rot:3deg;animation-delay:.3s;}
+    .collage-photos .p3{--rot:-3deg;animation-delay:.6s;}
+    .collage-photos .p4{--rot:4deg;animation-delay:.9s;}
+    .collage-photos .p5{--rot:-2deg;animation-delay:1.2s;}
+    .collage-photos .cphoto:hover{animation-play-state:paused;transform:scale(1.15) !important;z-index:9;transition:transform .2s ease;}
+    .hero-cta .btn-primary{animation:pulseGlow 2.8s ease-in-out 1.2s infinite;}
     .hero-cta .btn-primary:hover{animation:none;}
     .hero-card{transition:transform .3s ease;}
-    .hero-card:hover{transform:translateY(-4px);}
+    .hero-card:hover{transform:translateY(-6px) rotate(-.4deg);}
 
-    .value-card, .feature-card, .why-card, .video-card{transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;}
+    .value-card, .feature-card, .why-card, .video-card, .teacher-card, .testi-card, .why-card{
+      transition:transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s ease, border-color .3s ease;
+    }
+    .value-card:hover, .feature-card:hover{transform:translateY(-8px) rotate(-.6deg);box-shadow:var(--shadow-lg);}
+    .why-card:hover{transform:translateY(-6px);background:rgba(255,255,255,0.1);}
+    .video-card:hover{transform:translateY(-6px) scale(1.02);}
     .track-chip{transition:transform .2s ease, box-shadow .2s ease;}
-    .track-chip:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg);}
-    .stat{transition:transform .2s ease;}
-    .stat:hover{transform:translateY(-2px);}
-    .faq-q{transition:color .2s ease;}
-    .faq-item:hover .faq-q{color:var(--coral-dark);}
+    .track-chip:hover{transform:translateY(-3px) scale(1.03);box-shadow:var(--shadow-lg);}
+    .stat{transition:transform .25s cubic-bezier(.34,1.56,.64,1), background .2s ease;}
+    .stat:hover{transform:translateY(-3px) scale(1.05);background:var(--coral-light);}
+    .faq-q{transition:color .2s ease, padding-left .2s ease;}
+    .faq-item:hover .faq-q{color:var(--coral-dark);padding-left:6px;}
+    .eyebrow{transition:transform .2s ease;}
+    .eyebrow:hover{transform:scale(1.06);}
+    .nav-links a{position:relative;padding-bottom:2px;}
+    .nav-links a::after{
+      content:"";position:absolute;left:0;bottom:-2px;width:0;height:2px;background:var(--coral);
+      transition:width .25s ease;
+    }
+    .nav-links a:hover::after{width:100%;}
+    .logo{transition:transform .2s ease;}
+    .logo:hover{transform:scale(1.05) rotate(-1deg);}
     html{scroll-behavior:smooth;}
   }
 </style>
@@ -480,10 +529,10 @@
           <iframe src="https://www.youtube.com/embed/XWP_Atgh33w" title="파워잉글리시 실제 수업 콘텐츠" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe>
         </div>
         <div class="stat-grid mini">
-          <div class="stat"><b>20년+</b><span>운영 경력</span></div>
-          <div class="stat"><b>200만+</b><span>누적 교육생</span></div>
+          <div class="stat"><b class="countup" data-to="20" data-suffix="년+">0년+</b><span>운영 경력</span></div>
+          <div class="stat"><b class="countup" data-to="200" data-suffix="만+">0만+</b><span>누적 교육생</span></div>
           <div class="stat"><b>1:1</b><span>맞춤 커리큘럼</span></div>
-          <div class="stat"><b>4.9/5</b><span>학부모 만족도</span></div>
+          <div class="stat"><b class="countup" data-to="4.9" data-suffix="/5" data-decimals="1">0/5</b><span>학부모 만족도</span></div>
         </div>
         <div class="avatars">
           <div class="avatar-stack">
@@ -760,9 +809,9 @@
   <!-- TRUST STATS -->
   <section class="trust-band">
     <div class="wrap">
-      <div><b>20년+</b><span>운영 경력</span></div>
-      <div><b>200만+</b><span>누적 교육생</span></div>
-      <div><b>4.9 / 5</b><span>학부모 만족도</span></div>
+      <div><b class="countup" data-to="20" data-suffix="년+">0년+</b><span>운영 경력</span></div>
+      <div><b class="countup" data-to="200" data-suffix="만+">0만+</b><span>누적 교육생</span></div>
+      <div><b class="countup" data-to="4.9" data-suffix=" / 5" data-decimals="1">0 / 5</b><span>학부모 만족도</span></div>
       <div><b>1:1</b><span>맞춤 커리큘럼</span></div>
     </div>
   </section>
@@ -999,6 +1048,41 @@
     document.querySelectorAll('main section').forEach(function(sec){ revealIO.observe(sec); });
   } else {
     document.querySelectorAll('main section').forEach(function(sec){ sec.classList.add('in-view'); });
+  }
+
+  // Count-up numbers
+  function animateCountUp(el){
+    var to = parseFloat(el.getAttribute('data-to'));
+    var suffix = el.getAttribute('data-suffix') || '';
+    var decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
+    var duration = 1300;
+    var start = null;
+    function step(ts){
+      if (!start) start = ts;
+      var progress = Math.min((ts - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = (to * eased).toFixed(decimals) + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+      else el.textContent = to.toFixed(decimals) + suffix;
+    }
+    requestAnimationFrame(step);
+  }
+  if ('IntersectionObserver' in window) {
+    var countIO = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          animateCountUp(entry.target);
+          countIO.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.countup').forEach(function(el){ countIO.observe(el); });
+  } else {
+    document.querySelectorAll('.countup').forEach(function(el){
+      var to = parseFloat(el.getAttribute('data-to'));
+      var decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
+      el.textContent = to.toFixed(decimals) + (el.getAttribute('data-suffix') || '');
+    });
   }
 </script>
 
