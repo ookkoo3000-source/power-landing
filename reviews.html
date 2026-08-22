@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>학부모·수강생 후기 | 파워잉글리시</title>
+<meta name="description" content="파워잉글리시 실제 수강 후기와 성공 사례를 확인해보세요.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --coral:#FF6B4D;
+    --coral-dark:#E8532F;
+    --coral-light:#FFE4DB;
+    --navy:#22224A;
+    --navy-soft:#4A4A78;
+    --teal:#1FB8A6;
+    --cream:#FFFBF5;
+    --paper:#FFFFFF;
+    --ink:#22222E;
+    --ink-soft:#6B6B7B;
+    --line:#EFE9E2;
+    --shadow: 0 12px 32px rgba(34,34,74,0.08);
+    --shadow-lg: 0 20px 48px rgba(34,34,74,0.14);
+    --radius: 20px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  ul{list-style:none;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+  section{padding:96px 0;}
+  @media(max-width:720px){ section{padding:56px 0;} }
+
+  h1,h2,h3{font-weight:800;color:var(--navy);letter-spacing:-0.02em;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:6px;
+    background:var(--coral-light);color:var(--coral-dark);
+    font-weight:700;font-size:13px;padding:7px 16px;border-radius:999px;
+    margin-bottom:16px;
+  }
+  .stars{color:#FFB13D;font-size:15px;letter-spacing:1px;}
+
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:16px 30px;border-radius:14px;font-weight:700;font-size:16px;
+    border:none;cursor:pointer;transition:transform .15s ease, box-shadow .15s ease;
+    white-space:nowrap;
+  }
+  .btn:active{transform:scale(0.98);}
+  .btn-primary{background:var(--coral);color:#fff;box-shadow:0 10px 24px rgba(255,107,77,0.35);}
+  .btn-primary:hover{background:var(--coral-dark);box-shadow:0 14px 30px rgba(255,107,77,0.45);}
+  .btn-ghost{background:#fff;color:var(--navy);border:1.5px solid var(--line);}
+  .btn-ghost:hover{border-color:var(--coral);color:var(--coral-dark);}
+  .btn-lg{padding:19px 38px;font-size:18px;border-radius:16px;}
+
+  /* header */
+  header{
+    position:sticky;top:0;z-index:100;
+    background:rgba(255,251,245,0.9);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;}
+  .logo{font-size:20px;font-weight:900;color:var(--navy);display:flex;align-items:center;gap:8px;}
+  .logo span{color:var(--coral);}
+  .nav-links{display:flex;gap:32px;font-weight:600;font-size:15px;color:var(--navy-soft);}
+  .nav-links a:hover, .nav-links a.active{color:var(--coral-dark);}
+  .nav-cta{display:flex;align-items:center;gap:12px;}
+  .nav-tel{font-weight:700;color:var(--navy);font-size:15px;}
+  .nav-tel small{display:block;font-weight:500;color:var(--ink-soft);font-size:11px;}
+  .burger{display:none;background:none;border:none;font-size:24px;cursor:pointer;color:var(--navy);}
+  @media(max-width:860px){
+    .nav-links, .nav-tel{display:none;}
+    .burger{display:block;}
+  }
+
+  /* page header */
+  .page-hero{padding:64px 0 16px;text-align:center;}
+  .page-hero h1{font-size:clamp(28px,4.4vw,42px);margin-bottom:14px;}
+  .page-hero p{color:var(--ink-soft);font-size:16px;max-width:560px;margin:0 auto;}
+
+  /* filters */
+  .filters{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:44px;}
+  .filter-btn{
+    padding:10px 22px;border-radius:999px;border:1.5px solid var(--line);background:var(--paper);
+    font-weight:700;font-size:14px;color:var(--navy-soft);cursor:pointer;transition:all .15s ease;
+  }
+  .filter-btn:hover{border-color:var(--coral);color:var(--coral-dark);}
+  .filter-btn.active{background:var(--navy);border-color:var(--navy);color:#fff;}
+
+  /* testimonials */
+  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  @media(max-width:860px){ .testi-grid{grid-template-columns:1fr;} }
+  .testi-card{background:var(--paper);border-radius:18px;padding:26px;box-shadow:var(--shadow);transition:transform .15s ease;cursor:pointer;}
+  .testi-card:hover{transform:translateY(-3px);}
+  .testi-card:focus-visible{outline:2px solid var(--coral);outline-offset:2px;}
+  .read-more{margin-top:2px;font-size:12px;font-weight:800;color:var(--coral-dark);}
+  .testi-card .top-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;}
+  .cat-tag{font-size:11.5px;font-weight:800;color:var(--coral-dark);background:var(--coral-light);padding:4px 10px;border-radius:8px;}
+  .testi-card p{font-size:14.5px;color:var(--ink);margin-bottom:18px;line-height:1.65;}
+  .testi-who{display:flex;align-items:center;gap:10px;}
+  .testi-who .av{width:42px;height:42px;border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;flex:none;box-shadow:var(--shadow);}
+  .testi-who .av.kids{background:linear-gradient(135deg,#FF6B4D,#FF8A6E);}
+  .testi-who .av.teen{background:linear-gradient(135deg,#1FB8A6,#3FD6C4);}
+  .testi-who .av.adult{background:linear-gradient(135deg,#4A4A78,#7B7BD6);}
+  .testi-who b{font-size:13.5px;color:var(--navy);}
+  .testi-who span{font-size:12px;color:var(--ink-soft);}
+  .testi-note{text-align:center;color:var(--ink-soft);font-size:12.5px;margin-top:32px;}
+
+  /* showcase */
+  .showcase{
+    max-width:760px;margin:0 auto 60px;background:var(--paper);border-radius:24px;
+    box-shadow:var(--shadow-lg);overflow:hidden;border:1.5px solid var(--line);cursor:pointer;
+  }
+  .showcase img{width:100%;display:block;}
+  .showcase-cap{padding:20px 26px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;}
+  .showcase-cap b{font-size:14.5px;color:var(--navy);}
+  .showcase-cap span{font-size:12.5px;color:var(--ink-soft);}
+
+  /* case grid */
+  .case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:56px;}
+  @media(max-width:900px){ .case-grid{grid-template-columns:repeat(2,1fr);} }
+  @media(max-width:600px){ .case-grid{grid-template-columns:1fr;} }
+  .case-card{
+    background:var(--paper);border-radius:16px;overflow:hidden;border:1.5px solid var(--line);
+    box-shadow:var(--shadow);transition:transform .15s ease;
+  }
+  .case-card{cursor:pointer;}
+  .case-card:hover{transform:translateY(-3px);}
+  .case-card:focus-visible{outline:2px solid var(--coral);outline-offset:2px;}
+  .case-card img{width:100%;aspect-ratio:16/9;object-fit:cover;object-position:top;}
+  .case-card .cap{padding:16px 18px;}
+  .case-card .cap .cat-tag{margin-bottom:8px;display:inline-block;}
+  .case-card .cap b{display:block;font-size:14.5px;color:var(--navy);margin-bottom:3px;}
+  .case-card .cap span{font-size:12.5px;color:var(--ink-soft);}
+  .case-section-title{font-size:19px;font-weight:800;color:var(--navy);margin-bottom:20px;display:flex;align-items:center;gap:8px;}
+
+  .more-note{
+    max-width:640px;margin:48px auto 0;text-align:center;background:var(--paper);
+    border:1.5px dashed var(--line);border-radius:18px;padding:32px 28px;
+  }
+  .more-note h3{font-size:18px;margin-bottom:8px;}
+  .more-note p{color:var(--ink-soft);font-size:14.5px;margin-bottom:20px;}
+
+  /* modal */
+  .modal-overlay{
+    display:none;position:fixed;inset:0;background:rgba(20,20,40,0.6);z-index:1000;
+    align-items:center;justify-content:center;padding:24px;
+  }
+  .modal-overlay.open{display:flex;}
+  .modal-box{
+    background:var(--paper);border-radius:22px;max-width:640px;width:100%;
+    max-height:88vh;overflow-y:auto;box-shadow:var(--shadow-lg);position:relative;
+  }
+  .modal-box.image-mode{max-width:820px;background:var(--navy);}
+  .modal-close{
+    position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;
+    background:var(--cream);border:none;font-size:18px;cursor:pointer;color:var(--navy-soft);
+    display:flex;align-items:center;justify-content:center;z-index:2;
+  }
+  .modal-close:hover{background:var(--coral-light);color:var(--coral-dark);}
+  .modal-box.image-mode .modal-close{background:rgba(255,255,255,0.15);color:#fff;}
+  .modal-box.image-mode .modal-close:hover{background:var(--coral);}
+
+  .modal-art-head{padding:32px 32px 18px;border-bottom:1px solid var(--line);}
+  .modal-art-head .cat-tag{margin-bottom:10px;display:inline-block;}
+  .modal-art-head h3{font-size:20px;line-height:1.4;margin-bottom:6px;}
+  .modal-art-head .meta{font-size:12.5px;color:var(--ink-soft);}
+  .modal-art-body{padding:26px 32px 8px;}
+  .modal-art-body p{font-size:14.5px;color:var(--ink);line-height:1.8;margin-bottom:16px;}
+  .modal-knowhow{
+    margin:20px 32px 32px;background:var(--cream);border-radius:14px;padding:18px 20px;
+  }
+  .modal-knowhow h4{font-size:12.5px;color:var(--coral-dark);margin-bottom:8px;}
+  .modal-knowhow p{font-size:13.5px;color:var(--navy);line-height:1.7;}
+  .modal-source{padding:0 32px 28px;font-size:12px;color:var(--ink-soft);}
+  .modal-art-cta{padding:0 32px 32px;}
+
+  .modal-box.image-mode img{width:100%;display:block;}
+  .modal-img-cap{padding:18px 26px 26px;color:#fff;}
+  .modal-img-cap b{display:block;font-size:15px;margin-bottom:4px;}
+  .modal-img-cap span{font-size:12.5px;color:#B9B9D6;}
+
+  /* final cta */
+  .final-cta{background:linear-gradient(135deg,var(--coral),#FF8A6E);text-align:center;color:#fff;}
+  .final-cta h2{color:#fff;font-size:clamp(24px,3.6vw,32px);margin-bottom:12px;}
+  .final-cta p{color:#FFE9E1;font-size:15px;margin-bottom:28px;}
+  .final-cta .btn-ghost{background:#fff;color:var(--coral-dark);border:none;}
+
+  /* footer */
+  footer{background:var(--navy);color:#B9B9D6;padding:56px 0 28px;font-size:13.5px;}
+  .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:40px;}
+  @media(max-width:700px){ .foot-grid{grid-template-columns:1fr;gap:28px;} }
+  .foot-logo{font-size:19px;font-weight:900;color:#fff;margin-bottom:12px;}
+  .foot-logo span{color:var(--coral);}
+  .foot-col h4{color:#fff;font-size:14px;margin-bottom:14px;}
+  .foot-col li{margin-bottom:9px;}
+  .foot-col a:hover{color:#fff;}
+  .foot-sns{display:flex;gap:10px;margin-top:16px;}
+  .foot-sns a{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;font-size:14px;}
+  .foot-sns a:hover{background:var(--coral);}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:22px;font-size:12.5px;color:#8080A8;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav wrap">
+    <a href="index.html" class="logo">Power<span>English</span></a>
+    <nav class="nav-links">
+      <a href="index.html#courses">코스</a>
+      <a href="teachers.html">코치진</a>
+      <a href="index.html#process">진행방식</a>
+      <a href="reviews.html" class="active">후기</a>
+      <a href="index.html#faq">FAQ</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="tel:1899-2277" class="nav-tel">1899-2277<small>평일 09:30~18:00</small></a>
+      <a href="index.html#lead-form" class="btn btn-primary">무료 상담 신청</a>
+    </div>
+    <button class="burger" id="burgerBtn" aria-label="메뉴 열기">☰</button>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow" style="display:inline-flex;">수강생·학부모 후기</span>
+      <h1>파워잉글리시로 달라진<br>아이부터 어른까지의 이야기</h1>
+      <p>실제 수강 후기를 바탕으로 재구성했으며, 개인정보 보호를 위해 이니셜로 표기했습니다.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="wrap">
+      <div class="showcase" data-review="img-toefl" tabindex="0" role="button">
+        <img src="assets/success-cases/toefl-case.png" alt="파워잉글리시 실제 성공사례: 토플 라이팅 집중향상, 미국 12학년 유학 합격">
+        <div class="showcase-cap">
+          <b>📌 실제 성공사례 카드</b>
+          <span>파워잉글리시 공식 자료 · 한**(고3) 학생 토플 라이팅 집중케어 사례</span>
+        </div>
+      </div>
+
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">전체</button>
+        <button class="filter-btn" data-filter="kids">초등</button>
+        <button class="filter-btn" data-filter="teen">고등</button>
+        <button class="filter-btn" data-filter="adult">성인</button>
+      </div>
+
+      <div class="case-section-title">📸 실제 성공사례 캡처</div>
+      <div class="case-grid" id="caseGrid">
+        <div class="case-card" data-cat="kids" data-review="img-bcc" tabindex="0" role="button">
+          <img src="assets/success-cases/kids-bcc-school.png" alt="BCC 국제학교 인터뷰 합격 사례">
+          <div class="cap">
+            <span class="cat-tag">초등 · 국제학교</span>
+            <b>BCC 국제학교 인터뷰 합격</b>
+            <span>초3 여학생 · 리딩·라이팅 90분 6회 집중 준비</span>
+          </div>
+        </div>
+        <div class="case-card" data-cat="kids" data-review="img-award" tabindex="0" role="button">
+          <img src="assets/success-cases/kids-contest-award.png" alt="영어대회 동상 입상 사례">
+          <div class="cap">
+            <span class="cat-tag">초등 · 대회 입상</span>
+            <b>영어대회 동상 입상</b>
+            <span>초2 사립초 재학생</span>
+          </div>
+        </div>
+        <div class="case-card" data-cat="kids" data-review="img-phonics" tabindex="0" role="button">
+          <img src="assets/success-cases/kids-phonics.png" alt="파닉스 60단계 완전정복 사례">
+          <div class="cap">
+            <span class="cat-tag">초등 · 파닉스</span>
+            <b>파닉스 60단계 완전정복</b>
+            <span>초3 · 주3회 20분 · 스스로 영어책을 읽으려는 아이로</span>
+          </div>
+        </div>
+        <div class="case-card" data-cat="teen" data-review="img-grade" tabindex="0" role="button">
+          <img src="assets/success-cases/teen-grade-up.png" alt="고등 내신 20점 상승 사례">
+          <div class="cap">
+            <span class="cat-tag">고등 · 내신대비</span>
+            <b>내신 20점 이상 상승</b>
+            <span>고1 · 기초 부족한 하위권에서 반복학습으로 극복</span>
+          </div>
+        </div>
+        <div class="case-card" data-cat="adult" data-review="img-opic" tabindex="0" role="button">
+          <img src="assets/success-cases/adult-opic-al.png" alt="오픽 최고등급 AL 달성 사례">
+          <div class="cap">
+            <span class="cat-tag">성인 · OPIc</span>
+            <b>오픽 최고등급 AL 달성</b>
+            <span>2개월 단기목표로 시작 · 재등록 후 최종 AL 취득</span>
+          </div>
+        </div>
+        <div class="case-card" data-cat="adult" data-review="img-toeicspeaking" tabindex="0" role="button">
+          <img src="assets/success-cases/adult-toeicspeaking.png" alt="토익스피킹 AL 등급 달성 사례">
+          <div class="cap">
+            <span class="cat-tag">성인 · 토익스피킹</span>
+            <b>토익스피킹 AL 등급 달성</b>
+            <span>육군사관학교 준비생 · 주5회 20분 집중 코칭</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-section-title">💬 학부모·수강생 후기</div>
+      <div class="testi-grid" id="testiGrid">
+        <div class="testi-card" data-cat="kids" data-review="text-choi" tabindex="0" role="button">
+          <div class="top-row"><span class="stars">★★★★★</span><span class="cat-tag">초등 회화</span></div>
+          <p>"아이의 영어 실력이 백지가 되어버릴까 걱정했는데, 어느새 두려움 없이 자연스러운 발음으로 말하더라고요. 영어 자체에 대한 부담감이 많이 사라진 게 느껴져요."</p>
+          <div class="testi-who">
+            <div class="av kids">👶</div>
+            <div><b>최OO 학생 학부모</b><br><span>초등 회화 강화반</span><div class="read-more">전체 후기 보기 →</div></div>
+          </div>
+        </div>
+        <div class="testi-card" data-cat="kids" data-review="text-hwang" tabindex="0" role="button">
+          <div class="top-row"><span class="stars">★★★★★</span><span class="cat-tag">초등 회화</span></div>
+          <p>"진도를 나가기 위한 수업이 아니라 아이 실력에 맞춰 진행되는 게 가장 좋아요. 코치님의 적절한 당근과 채찍으로 말하기 두려움을 많이 극복했습니다."</p>
+          <div class="testi-who">
+            <div class="av kids">👶</div>
+            <div><b>황OO 학생 학부모</b><br><span>초등 회화 강화반 · 약 1년 수강</span><div class="read-more">전체 후기 보기 →</div></div>
+          </div>
+        </div>
+        <div class="testi-card" data-cat="kids" data-review="text-lee" tabindex="0" role="button">
+          <div class="top-row"><span class="stars">★★★★★</span><span class="cat-tag">초등 회화</span></div>
+          <p>"선생님이 늘 즐겁게 수업해 주시니까 대화가 겁나거나 지루하지 않아요." — 학생<br>"하루 10분이라도 원어민처럼 대화하니 영어 감각을 유지할 수 있어요." — 학부모</p>
+          <div class="testi-who">
+            <div class="av kids">👶</div>
+            <div><b>이OO 학생 & 학부모</b><br><span>초등 회화 강화반</span><div class="read-more">전체 후기 보기 →</div></div>
+          </div>
+        </div>
+        <div class="testi-card" data-cat="teen" data-review="text-yoo" tabindex="0" role="button">
+          <div class="top-row"><span class="stars">★★★★★</span><span class="cat-tag">고등 · 전화영어</span></div>
+          <p>"10분이라는 짧은 수업 시간 덕분에 피로함이 느껴지지 않아 늘 즐겁게 진행하고 있습니다. 외국인을 만나도 먼저 말을 걸 수 있을 만큼 영어에 자신감이 생겼어요." — 이후 학교 원어민 프로그램에도 선발됐어요.</p>
+          <div class="testi-who">
+            <div class="av teen">🎓</div>
+            <div><b>유OO 학생</b><br><span>정보산업고 1학년 · 약 2년 수강</span><div class="read-more">전체 후기 보기 →</div></div>
+          </div>
+        </div>
+        <div class="testi-card" data-cat="adult" data-review="text-jo" tabindex="0" role="button">
+          <div class="top-row"><span class="stars">★★★★★</span><span class="cat-tag">성인 · 대학생</span></div>
+          <p>"학기 중에는 따로 시간을 내서 영어 공부하기가 어려운데, 하루 20분 짧은 수업으로 영어 감을 잃지 않고 꾸준히 공부할 수 있었어요. 회화에서 가장 중요한 건 결국 자신감이더라고요."</p>
+          <div class="testi-who">
+            <div class="av adult">💼</div>
+            <div><b>조OO 학생</b><br><span>대학교 3학년 · 7년 이상 수강</span><div class="read-more">전체 후기 보기 →</div></div>
+          </div>
+        </div>
+      </div>
+
+      <p class="testi-note">※ vinemagazine 코칭맘 매거진에 실린 실제 수강 후기를 바탕으로 재구성했습니다.</p>
+
+      <div class="more-note">
+        <h3>더 많은 성공 사례가 계속 업데이트됩니다</h3>
+        <p>영어유치원 준비반부터 성인 시험대비까지, 다양한 후기를 무료 상담 시 더 자세히 안내해드려요.</p>
+        <a href="index.html#lead-form" class="btn btn-primary">무료 레벨테스트 신청하기</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <div class="wrap">
+      <h2>다음 후기의 주인공은 우리 아이일 수 있어요</h2>
+      <p>200만 명이 선택한 노하우, 무료로 먼저 확인해보세요.</p>
+      <a href="index.html#lead-form" class="btn btn-ghost btn-lg">무료 레벨테스트 신청하기</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">Power<span>English</span></div>
+        <p style="max-width:320px;color:#9999BC;">20년 운영 경력, 200만 명 이상이 함께한 1:1 맞춤 영어 회화·발음 교정 전문 교육기관입니다.</p>
+        <div class="foot-sns">
+          <a href="#" aria-label="인스타그램">IG</a>
+          <a href="#" aria-label="블로그">B</a>
+          <a href="#" aria-label="유튜브">YT</a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4>바로가기</h4>
+        <ul>
+          <li><a href="index.html#courses">코스 안내</a></li>
+          <li><a href="teachers.html">코치진 소개</a></li>
+          <li><a href="reviews.html">학부모 후기</a></li>
+          <li><a href="index.html#faq">자주 묻는 질문</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>고객센터</h4>
+        <ul>
+          <li>대표전화 1899-2277</li>
+          <li>평일 09:30~18:00 (점심 12:00~13:00 제외)</li>
+          <li>서울 강남구 테헤란로 25</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      파워잉글리시(Power English) · 대표자명 및 사업자등록번호는 실제 정보로 교체해주세요 · 이용약관 · 개인정보처리방침
+    </div>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-box" id="modalBox" role="dialog" aria-modal="true">
+    <button class="modal-close" id="modalClose" aria-label="닫기">✕</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<script>
+  var buttons = document.querySelectorAll('.filter-btn');
+  var cards = document.querySelectorAll('[data-cat]');
+  buttons.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      buttons.forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      var filter = btn.getAttribute('data-filter');
+      cards.forEach(function(card){
+        var show = filter === 'all' || card.getAttribute('data-cat') === filter;
+        card.style.display = show ? '' : 'none';
+      });
+    });
+  });
+
+  document.getElementById('burgerBtn').addEventListener('click', function(){
+    window.location.href = 'index.html#lead-form';
+  });
+
+  var reviewData = {
+    "text-choi": {
+      type: "text",
+      cat: "초등 회화 · 학부모 후기",
+      title: "영어의 재미를 찾다, 파워잉글리시",
+      meta: "최OO 학생 (초등학교 3학년) · 2022년 5월 6일 게시",
+      paragraphs: [
+        "어린이집 다닐 때는 주 5일 영어 교육 시스템이 잘 되어 있어서 진도를 잘 따라갔습니다. 하지만 초등학교 입학과 동시에 코로나19로 인해 영어 교육 기회를 잃게 되었고, 아이의 영어 실력이 완전히 처음부터 시작하는 상태가 되었습니다. 시누이의 추천으로 파워잉글리시를 시작하게 되었습니다.",
+        "파워잉글리시를 만난 후 아이가 영어에 대한 거부감이나 두려움이 없어졌습니다. 처음에는 어색해서 대답을 잘 못했지만, 선생님의 적극적인 칭찬과 격려로 부족하더라도 말하기 시작했고, 현재는 틀리더라도 망설임 없이 대답하고 이야기합니다.",
+        "일상생활에서 배웠던 단어나 문장을 보면 스스로 되뇌어봅니다. 어린이집 졸업 후 파닉스만 기억했던 아이가 이제는 읽는 것을 넘어 자연스럽게 좋은 발음으로 영어를 말합니다.",
+        "선생님이 매 시간 소리 파일을 따라하는 과제를 주셔서 발음이 좋아지고 유창해졌습니다. 선생님이 보내주신 영상에서 다양한 질문을 이해하고 적절하게 대답하는 모습을 보며 아이의 발전을 실감합니다.",
+        "요즘에는 다양한 인칭대명사를 사용하여 문장을 말합니다. 말하기 수업만 하는 줄 알았는데 문법적 요소까지 자연스럽게 익혀가는 모습이 보입니다.",
+        "코치님께는 특별히 감사합니다. 첫날부터 아낌없는 칭찬과 격려로 자신감을 불어넣어 주셨고, 높은 텐션과 밝은 표정으로 수업 시간이 지루하지 않게 해주셨습니다. 부족한 부분은 꼼꼼히 체크하시고 아이의 실력에 맞춰 진도와 공부 방법을 조정하십니다.",
+        "처음에는 영어 학습이 아이를 힘들게 할까 걱정했지만, 파워잉글리시는 레벨 테스트로 정확한 실력을 파악하고 맞춤 교재와 수업으로 영어를 재미있게 배울 수 있게 해줍니다. 영어를 처음 시작하는 아이라면 파워잉글리시를 추천합니다."
+      ],
+      knowhow: "원재는 항상 진심을 담아 질문에 적극적으로 대답합니다. 처음에는 한국어로 대답했지만, 어느새 영어로 대답하려는 모습이 보입니다. 스토리북을 활용해 다양한 어휘와 회화 문장을 배우고, 친구와 대화하듯 이야기하는 시간을 가졌습니다. 소리 파일 녹음 과제를 통해 리스닝 실력도 성장하고 있습니다. 앞으로도 꾸준히 영어를 학습하여 좋은 결과를 만들어내기를 바랍니다.",
+      source: "출처: vinemagazine.co.kr 학부모 후기"
+    },
+    "text-hwang": {
+      type: "text",
+      cat: "초등 회화 · 학부모 후기",
+      title: "영어에 대한 두려움, 안녕!",
+      meta: "황세은 학생 (초등학교 3학년) · 2022년 4월 21일 게시",
+      paragraphs: [
+        "아이가 초등학교에 입학하며 학교 방과후 수업으로 영어를 배우기 시작했어요. 하지만 말하기를 힘들어하던 터라 매일 조금씩, 꾸준히 말하기, 기초 문법 등 차근차근 영어 실력을 키울 수 있기를 바랐어요. 그렇다고 아이에게 부담감은 주고 싶지 않아서 영어 프로그램을 찾아보다가 꾸준히 영어를 접할 수 있는 파워잉글리시 화상영어를 신청하게 되었습니다.",
+        "파워잉글리시는 아이에게 부담이 가지 않을 정도인, 일주일에 3번, 20분 동안 화상으로 수업을 진행했어요. 코치님께서 매 수업마다 과제를 내 주고, 과제를 코치님께 제출하면 다음 수업 시간에 피드백을 해 주십니다. 그리고 수업이 없을 때에는 녹화 영상으로 복습하였어요.",
+        "1년 정도 함께하고 있는데, 파워잉글리시는 무엇보다도 진도를 나가기 위한 수업이 아니라, 아이 실력에 맞춰 수업이 진행되는 게 가장 좋아요. 코치님께서 현지에서 실제로 사용할 수 있는 내용을 교과서와 적절히 연계해 수업을 해 주시는데, 아이가 익숙해질 때까지 반복 질문해 주어 결국 아이가 스스로 터득할 수 있게끔 이끌어 주세요.",
+        "앞서 말한 것처럼, 코치님이 수업을 녹화하여 수업이 끝날 때마다 제게 보내 주시는데, 덕분에 아이가 수업을 하지 않을 때도 녹화 영상을 통해 복습하고, 반복할 수 있어 굉장히 유익해요. 또 수업 참여가 힘든 상황이 생기면 수업을 연기할 수 있고, 연기된 일정을 언제든지 제가 확인할 수 있도록 관리해 주는 등 세심한 피드백이 장점이라고 생각합니다.",
+        "영어를 배우는 데 있어 가장 큰 어려움은 '두려움'이라고 생각해요. 아이가 특히 말하기에 자신이 없어서인지 영어를 많이 두려워했어요. 특히 영어로 대화하는 것을요. 하지만 코치님께서 아이가 잘하는 부분에는 칭찬을 아끼지 않고, 부족한 부분에는 정확히 피드백해 주어 아이가 잘못된 영어 습관을 고쳐 나갈 수 있도록 지도해 주셨어요.",
+        "코치님의 적절한 당근과 채찍으로 아이가 영어를 대하는 태도가 진지해지고, 자연스럽게 영어 실력도 향상되었고 말하기에 대한 두려움도 많이 극복해서 요즘에는 아이가 영어에 대한 두려움이 많이 사라지고, 자신감이 생겼더라고요.",
+        "또, 교과서 외에 다양한 영어 회화 표현을 많이 알려주는데, 아이가 이 표현을 일상생활에서 적용해 보는 것을 좋아하더라고요. 특히 수업 시간에 본 영어 애니메이션이 재미있었는지, 영화를 볼 때 자막이 아니라 원어민의 말소리를 듣고 따라하고 싶어해서 참 신기하기도 해요. 단순히 높은 영어 점수를 받는 것이 아니라, 아이가 불편함 없이 즐겁게 실생활에서 영어를 사용하기를 바라고 있어요.",
+        "저는 학생 때 영어는 '암기'라고 배웠고, 그래서인지 영어에 흥미를 느끼지 못했어요. 하지만 우리 아이만큼은 영어를 재밌게 배우기를 바라고 있어요. 코치님께서 아이가 영어에 대한 흥미를 가질 수 있게 재미난 게임이나 애니메이션처럼 다양한 콘텐츠로 지루할 틈이 없게 수업을 진행해 주시니까요. 앞으로도 아이가 코치님, 그리고 파워잉글리시와 함께 즐겁게 영어를 공부할 수 있기를 바라고 있습니다."
+      ],
+      knowhow: "\"세은이는 항상 웃으면서 적극적으로 수업에 임합니다. 읽기, 말하기, 단어, 영어 게임 등 무엇을 하든지 열심히 하는 모습이 정말 이쁘고, 또 잘 따라오는 세은이가 자랑스럽습니다. 이렇게 열심히 하는 세은이에게 제가 수업 중 해 줄 수 있는 게 무엇일지 항상 자문하게 됩니다. 세은이와 수업하는 게 코치로서 행운이라고 생각합니다. 세은이가 외국인과 자연스럽게 대화하는 그날까지 응원합니다.\"",
+      source: "출처: vinemagazine.co.kr 학부모 후기 (※ 랜딩페이지에는 개인정보 보호를 위해 이니셜로 표기했습니다)"
+    },
+    "text-lee": {
+      type: "text",
+      cat: "초등 회화 · 학생&학부모 인터뷰",
+      title: "하루 10분, 나만을 위한 나의 영어 선생님",
+      meta: "이OO 학생 (초등학교 4학년) · 출처: 코칭맘 Vol.36, Best Student 2",
+      paragraphs: [
+        "Q. 파워잉글리시를 시작하게 된 계기는?",
+        "학부모: 학교에서 하는 교육이 문법 위주로 진행되다 보니까 실생활에 필요한 회화를 더 잘 준비할 수 있게 하기 위해 산이에게 권했어요.",
+        "학생: 재미있게 영어 공부를 하면서 영어 실력을 늘리고 싶었고, 외국인과 직접 소통할 수 있는 영어 회화를 배워서 여행도 가고 싶어서 파워잉글리시를 시작했어요.",
+        "Q. 파워잉글리시 프로그램의 장점은?",
+        "학부모: 영어 선생님과 같은 시간에 10분 정도 매일매일 통화하는 시간이 산이도 모르게 영어 회화 실력에 많은 도움이 됩니다. 그리고 잘 모르거나 부족한 부분은 선생님께서 바로바로 알아채고 고쳐 주시니 회화에 도움이 많이 됩니다.",
+        "학생: 생각하는 것은 바로바로 말하며 확인할 수 있고 선생님이 늘 즐겁게 수업해 주시니까 선생님과 대화가 겁나거나 지루하지 않아요. 그리고 대화하다가 궁금한 것은 바로 물어 볼 수 있어서 좋아요. 학원이나 학교처럼 여러 명이 대화하는 것이 아니라 선생님이랑 1:1로 이야기하는 것도 좋아요. 틀려도 창피하지 않고 선생님한테 바로 물어 볼 수 있어요.",
+        "Q. 학습 과정 중 특히 도움을 얻은 부분이 있다면?",
+        "학부모: 모르는 단어나 생각이 나지 않아서 발음을 잘 못하거나 교정해야 할 때는 선생님께서 차근차근 지도해 주셔서 산이가 부담 없이 배우고 있습니다.",
+        "학생: 전화영어에서 배운 문장이나 단어가 학교 수업에서 나왔던 적이 있었어요. 그때 반 친구들과 다르게 이미 배운 것이 나와서 쉽게 이야기할 수 있어서 기분이 좋았어요.",
+        "Q. 수업을 하며 스스로 학습을 어떻게?",
+        "학부모: 회화나 단어를 열심히 외우기보다는 선생님이 내 주는 숙제를 하고 그 외에 수업 녹음 파일을 따로 듣게 합니다. 그리고 이해력을 높이기 위해서 영어 책이나 영화를 많이 보게 합니다.",
+        "학생: 수업을 하면서 몰랐던 단어는 한국말로 뜻을 꼭 써 놓고 공부하고, 발음이 잘못 되었던 것은 혼자 여러 번 반복하면서 연습하고 있어요. 학교 공부처럼 하는 것은 재미가 없어서 집에서 선생님이 내 주시는 읽기 숙제나 영화를 많이 보고, 영화에서 나온 영어를 찾아보다 보면 자연스럽게, 그리고 재미있게 영어 공부가 됩니다.",
+        "Q. 파워잉글리시를 통해 얻고 싶은 것이 있다면?",
+        "학부모: 선생님과 오랫동안 같이 공부하면서 발음도 정확하게 배우고 단어도 열심히 공부 하면서 현지인과 영어로 유창하게 대화하게 되는 산이를 상상해 봅니다.",
+        "학생: 부모님이랑 외국으로 여행 갔을 때 영어를 잘하는 모습을 보여드리고 싶어요! 그래서 선생님과 영어 회화 공부를 열심히 할 거에요.",
+        "Q. 프로그램에 한마디 남겨 주신다면?",
+        "학부모: 파워잉글리시는 무엇보다도 아이가 영어로 매일 이야기할 수 있다는 것이 제일 좋은 것 같습니다. 학원에서나 학교에서 아무리 열심히 배워도 집에서 한국어만 쓰니 배웠던 것도 잊어버릴 수밖에 없는 상황에서 하루 10분이라도 영어로 원어민처럼 대화하니 영어에 대한 감각을 유지할 수 있습니다.",
+        "학생: 친구들아, 파워잉글리시 수업을 열심히 듣고, 꾸준히 연습하다 보면 조금씩 영어를 잘하게 되는 내 모습을 볼 수 있을 거야. 그리고 영어가 재밌어져, 그러니 열심히 하자! 아자아자 파이팅!"
+      ],
+      knowhow: "",
+      source: "출처: 《코칭맘》 Vol.36, Best Student 2 (vinemagazine.co.kr)"
+    },
+    "text-yoo": {
+      type: "text",
+      cat: "고등 · 전화영어 후기",
+      title: "시간이 갈수록 매력적인 전화영어 수업",
+      meta: "유OO 학생 (정보산업고 1학년) · 출처: 코칭맘 Vol.31",
+      paragraphs: [
+        "방황하던 시절 만난 파워잉글리시 — 중학교 3학년 초반, 학생은 뚜렷한 목표나 특별한 강점이 없는 상태였습니다. 성적도 좋지 않아 고등학교와 진로에 대해 불안감을 느꼈습니다. 이 상황에서 어머니의 제안으로 사교육을 시작하기로 결정했고, 특히 영어 회화 능력을 키우는 것이 좋겠다는 생각에 파워잉글리시 전화영어 수업에 등록했습니다.",
+        "실력이 느니 흥미와 재미는 덤 — 전화영어를 통해 단어, 문법, 어휘력이 크게 향상되었습니다. 처음에는 기초 문법과 단어조차 모르는 상태였지만, 이제는 자신의 생각을 자연스럽게 영어로 표현할 수 있게 되었습니다. 모르던 내용을 배우고 이를 회화에 활용하면서 자연스럽게 영어 학습을 즐기게 되었습니다.",
+        "시간이 갈수록 매력적인 전화영어 — 2년간의 수업 경험을 통해 전화영어의 가장 큰 장점은 \"부담이 안 가는 짧은 수업 시간\"이라고 느꼈습니다. 10분이라는 짧은 시간이 피로감 없이 즐겁게 학습할 수 있게 했습니다.",
+        "외국인 친구, 세계 여행, 커지는 나의 꿈 — 선생님과의 친밀한 관계가 수업의 효과를 높였습니다. 일상적인 이야기를 나누면서 선생님과 가까워졌고, 이는 학습의 재미를 더했습니다. 학생은 어릴 때부터 꿈꾸던 세계 여행과 외국인 친구들과의 자유로운 대화가 이제 현실이 될 수 있을 것 같다는 자신감을 얻었습니다."
+      ],
+      knowhow: "담당 선생님은 학생의 2년간의 성장에 뿌듯함을 느꼈습니다. 초기에 한국어로 답하려던 습관을 고치기 위해 노력했으며, 그 결과 현재는 원어민을 만나도 편안하게 대화할 수 있는 실력을 갖추게 되었다고 평가했습니다.",
+      source: "출처: 《코칭맘》 Vol.31 (vinemagazine.co.kr)"
+    },
+    "text-jo": {
+      type: "text",
+      cat: "성인 · 대학생 후기",
+      title: "취업 준비와 실용 영어 준비를 한번에",
+      meta: "조OO 학생 (대학교 3학년)",
+      paragraphs: [
+        "오랫동안 함께한 파워잉글리시 — 저는 2016년부터 파워잉글리시 전화 영어 수업을 진행했습니다. 새해가 되며 영어 말하기와 듣기를 더 잘하고 싶은 마음, 그리고 취업 준비용 인증시험을 대비하기 위해 실용 영어 커리큘럼으로 현재 수업을 진행 중입니다.",
+        "처음에는 말하기에 대한 자신감이 부족했고 문장구사력도 좋지 않았지만, 꾸준한 연습과 선생님의 호응, 자신감 부여를 통해 자연스럽게 영어로 소통하는 단계에 도달했습니다.",
+        "고등학교 재학 시절 영어권 어학연수 경험이 있는데, 수업을 통해 연습한 회화로 현지인들과 어렵지 않게 소통할 수 있었습니다. \"학교를 다니면 학기 중에는 특히 따로 시간을 내서 영어 공부하기가 어려운데, 파워잉글리시를 통해 매일 하루 20분 짧게 수업을 하며 영어에 대한 감을 잃지 않고 꾸준히 공부할 수 있습니다.\"",
+        "내가 생각하는 파워잉글리시의 장점 — 맞춤형 수업: 수업 시간, 레벨, 필요한 교육과정(내신 준비, 토익, 오픽 등), 교재 등 전적으로 학생 상황에 맞춰 진행됩니다. 유동성: 학생 사정에 따라 수업을 연기할 수 있으며, 진행 중인 수업에서 자유롭게 맞춤 과정으로 변경할 수 있습니다. 다양한 교재와 콘텐츠: 토익 준비 시에도 요일별로 회화 다이얼로그, LC, RC와 영화 콘텐츠, 영어 기사 등 다양한 주제로 공부하여 지루하지 않게 학습할 수 있습니다.",
+        "최소의 시간, 최대의 효과 — 대학 과 활동이 늘어나며 수업 시간에 맞춰 귀가하는 것이 번거로웠지만, \"선생님께서 저에게 편한 시간으로 맞춰 주시고 습관처럼 매일 하다 보니 자연스럽게 일과로 자리 잡게 되어 꾸준히 할 수 있었습니다.\" \"주 5일, 하루 20분의 짧은 수업 시간에 최대한의 효과를 내도록 스스로 노력하는 습관을 만들어 가고 있습니다.\"",
+        "외국인 친구와 전화로 수다 떨기 — \"영어 회화를 하는 데 있어서 가장 중요한 것은 자신감\"이라고 생각합니다. 아는 단어가 많아도 입이 떨어지지 않으면 문장 구사가 쉽지 않기 때문에 많이 말하는 연습을 했습니다. \"선생님께서 대화를 주도하시더라도 맞장구를 치거나 중간에 하고 싶은 말이 있으면 대화에 함께 참여하며 적극적인 태도로 수업에 임합니다.\""
+      ],
+      knowhow: "말하기와 발음에 자신감이 없는 학생을 위해 일상의 주제, 경험, 의견 나누기, 인증시험 대비 필요한 질문 등 다양한 콘텐츠를 병행하며 흥미를 유지하고자 노력했습니다. 영어 말하기에 대한 두려움이 줄어들어 현재는 자신의 생각을 논리적이고 조리 있게 표현하는 능력이 향상되었으며, 억양과 발음 교정으로 더욱 자신감 있게 문장을 구사하는 부분이 많이 개선되고 있습니다.",
+      source: "출처: vinemagazine.co.kr 학생 후기"
+    },
+    "img-toefl": { type: "image", img: "assets/success-cases/toefl-case.png", title: "토플 라이팅 집중향상 → 미국 12학년 유학 합격", meta: "한**(고3) 학생 · 파워잉글리시 공식 성공사례 자료" },
+    "img-bcc": { type: "image", img: "assets/success-cases/kids-bcc-school.png", title: "BCC 국제학교 인터뷰 합격", meta: "초3 여학생 · 리딩·라이팅 90분 6회 집중 준비" },
+    "img-award": { type: "image", img: "assets/success-cases/kids-contest-award.png", title: "영어대회 동상 입상", meta: "초2 사립초 재학생" },
+    "img-phonics": { type: "image", img: "assets/success-cases/kids-phonics.png", title: "파닉스 60단계 완전정복", meta: "초3 · 주3회 20분 · 스스로 영어책을 읽으려는 아이로" },
+    "img-grade": { type: "image", img: "assets/success-cases/teen-grade-up.png", title: "내신 20점 이상 상승", meta: "고1 · 기초 부족한 하위권에서 반복학습으로 극복" },
+    "img-opic": { type: "image", img: "assets/success-cases/adult-opic-al.png", title: "오픽 최고등급 AL 달성", meta: "2개월 단기목표로 시작 · 재등록 후 최종 AL 취득" },
+    "img-toeicspeaking": { type: "image", img: "assets/success-cases/adult-toeicspeaking.png", title: "토익스피킹 AL 등급 달성", meta: "육군사관학교 준비생 · 주5회 20분 집중 코칭" }
+  };
+
+  var mOverlay = document.getElementById('modalOverlay');
+  var mBox = document.getElementById('modalBox');
+  var mContent = document.getElementById('modalContent');
+  var mClose = document.getElementById('modalClose');
+
+  function openReview(id){
+    var d = reviewData[id];
+    if(!d) return;
+    if(d.type === 'text'){
+      mBox.classList.remove('image-mode');
+      var html = '<div class="modal-art-head"><span class="cat-tag">' + d.cat + '</span><h3>' + d.title + '</h3><div class="meta">' + d.meta + '</div></div><div class="modal-art-body">';
+      d.paragraphs.forEach(function(p){ html += '<p>' + p + '</p>'; });
+      html += '</div>';
+      if(d.knowhow){
+        html += '<div class="modal-knowhow"><h4>👩‍🏫 담당 코치 코멘트</h4><p>' + d.knowhow + '</p></div>';
+      }
+      html += '<p class="modal-source">' + d.source + '</p>';
+      html += '<div class="modal-art-cta"><a href="index.html#lead-form" class="btn btn-primary" style="width:100%;">무료 레벨테스트 신청하기</a></div>';
+      mContent.innerHTML = html;
+    } else {
+      mBox.classList.add('image-mode');
+      mContent.innerHTML = '<img src="' + d.img + '" alt="' + d.title + '"><div class="modal-img-cap"><b>' + d.title + '</b><span>' + d.meta + '</span></div>';
+    }
+    mOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeReview(){
+    mOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('[data-review]').forEach(function(el){
+    el.addEventListener('click', function(){ openReview(el.getAttribute('data-review')); });
+    el.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openReview(el.getAttribute('data-review')); }
+    });
+  });
+  mClose.addEventListener('click', closeReview);
+  mOverlay.addEventListener('click', function(e){ if(e.target === mOverlay) closeReview(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeReview(); });
+</script>
+
+</body>
+</html>
