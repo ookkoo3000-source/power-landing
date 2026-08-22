@@ -221,6 +221,9 @@
     section.in-view .case-grid>*:nth-child(4){animation-delay:.21s;}
     section.in-view .case-grid>*:nth-child(5){animation-delay:.28s;}
     section.in-view .case-grid>*:nth-child(6){animation-delay:.35s;}
+    section.in-view .case-grid>*:nth-child(7){animation-delay:.42s;}
+    section.in-view .case-grid>*:nth-child(8){animation-delay:.49s;}
+    section.in-view .case-grid>*:nth-child(9){animation-delay:.56s;}
     .showcase, .more-note{opacity:0;transform:scale(.96);}
     section.in-view .showcase, section.in-view .more-note{animation:softPop .6s cubic-bezier(.22,1,.36,1) forwards;}
     .testi-card, .case-card, .showcase{transition:transform .25s ease, box-shadow .25s ease;}
@@ -328,6 +331,30 @@
             <span>육군사관학교 준비생 · 주5회 20분 집중 코칭</span>
           </div>
         </div>
+        <div class="case-card" data-cat="adult" data-review="img-senior" tabindex="0" role="button">
+          <img src="assets/success-cases/adult-senior-chat.png" alt="시니어 회화 실력 향상 사례">
+          <div class="cap">
+            <span class="cat-tag">성인 · 시니어 회화</span>
+            <b>미국 아들과 영어로 대화하기</b>
+            <span>60대 여성 · 1년 수강 · 실제 대화 캡처</span>
+          </div>
+        </div>
+        <div class="case-card" data-cat="adult" data-review="img-visa" tabindex="0" role="button">
+          <img src="assets/success-cases/adult-j1-visa.png" alt="미국 J1 비자 인터뷰 합격 사례">
+          <div class="cap">
+            <span class="cat-tag">성인 · 비자 인터뷰</span>
+            <b>미국 J1 비자 인터뷰 합격</b>
+            <span>2개월 집중 준비 · Green Letter 수령</span>
+          </div>
+        </div>
+        <div class="case-card" data-cat="adult" data-review="img-flight" tabindex="0" role="button">
+          <img src="assets/success-cases/adult-toeicspeaking-promotion.png" alt="승진용 토스 점수 달성 사례">
+          <div class="cap">
+            <span class="cat-tag">성인 · 승무원</span>
+            <b>승진 목표 토스 점수 달성</b>
+            <span>현직 승무원 · 1개월 만에 목표 점수 돌파</span>
+          </div>
+        </div>
       </div>
 
       <div class="case-section-title">💬 학부모·수강생 후기</div>
@@ -370,6 +397,14 @@
           <div class="testi-who">
             <div class="av adult">💼</div>
             <div><b>조OO 학생</b><br><span>대학교 3학년 · 7년 이상 수강</span><div class="read-more">전체 후기 보기 →</div></div>
+          </div>
+        </div>
+        <div class="testi-card" data-cat="adult" data-review="text-couple50" tabindex="0" role="button">
+          <div class="top-row"><span class="stars">★★★★★</span><span class="cat-tag">성인 · 직장인</span></div>
+          <p>"'한마디도 못 하던 나'에서 '부족하게나마 말을 건네는 나'로. 해외 클라이언트 앞에서 자리를 피하던 50대 직장인 두 분이 5개월 만에 먼저 말을 건네게 된 이야기예요."</p>
+          <div class="testi-who">
+            <div class="av adult">💼</div>
+            <div><b>A님 & B님</b><br><span>50대 기업인·직장인 · 각 5개월 수강</span><div class="read-more">전체 후기 보기 →</div></div>
           </div>
         </div>
       </div>
@@ -557,7 +592,26 @@
     "img-phonics": { type: "image", img: "assets/success-cases/kids-phonics.png", title: "파닉스 60단계 완전정복", meta: "초3 · 주3회 20분 · 스스로 영어책을 읽으려는 아이로" },
     "img-grade": { type: "image", img: "assets/success-cases/teen-grade-up.png", title: "내신 20점 이상 상승", meta: "고1 · 기초 부족한 하위권에서 반복학습으로 극복" },
     "img-opic": { type: "image", img: "assets/success-cases/adult-opic-al.png", title: "오픽 최고등급 AL 달성", meta: "2개월 단기목표로 시작 · 재등록 후 최종 AL 취득" },
-    "img-toeicspeaking": { type: "image", img: "assets/success-cases/adult-toeicspeaking.png", title: "토익스피킹 AL 등급 달성", meta: "육군사관학교 준비생 · 주5회 20분 집중 코칭" }
+    "img-toeicspeaking": { type: "image", img: "assets/success-cases/adult-toeicspeaking.png", title: "토익스피킹 AL 등급 달성", meta: "육군사관학교 준비생 · 주5회 20분 집중 코칭" },
+    "img-senior": { type: "image", img: "assets/success-cases/adult-senior-chat.png", title: "미국 아들과 영어로 대화하기", meta: "60대 여성 메디컬 테크니션 · 1년 수강 · 실제 대화 캡처" },
+    "img-visa": { type: "image", img: "assets/success-cases/adult-j1-visa.png", title: "미국 J1 비자 인터뷰 합격", meta: "2개월 집중 준비 · Green Letter 수령" },
+    "img-flight": { type: "image", img: "assets/success-cases/adult-toeicspeaking-promotion.png", title: "승진 목표 토스 점수 달성", meta: "현직 승무원 · 1개월 만에 목표 점수 돌파" },
+    "text-couple50": {
+      type: "text",
+      cat: "성인 · 직장인 후기",
+      title: "50대 직장인 두 분의 회화 성공기",
+      meta: "A님 · B님 (50대 기업인·직장인) · 각 5개월 수강",
+      paragraphs: [
+        "해외 클라이언트와의 짧은 인사조차 입이 떨어지지 않아 자리를 피하게 되고, 모처럼 떠난 해외여행에서도 손짓 발짓에만 의존해야 했던 50대 직장인 B님. \"나도 한마디라도 해보고 싶다\"는 실낱같은 희망으로 1:1 온라인 수업의 문을 두드리셨습니다.",
+        "처음 2~3개월은 쉽지 않은 시간이었습니다. 배운 내용을 돌아서면 잊어버리는 것 같고 실력이 제자리걸음인 듯한 느낌에 스스로에 대한 답답함과 회의감이 찾아오기도 했습니다. 하지만 포기하지 않고 묵묵히 수업을 이어간 지 4개월, 서서히 변화의 신호가 나타나기 시작했습니다. 상대방의 간단한 질문이나 일상적인 대화가 예전처럼 소음으로 들리지 않고, 조금씩 그 의미가 머릿속에 그려지기 시작한 것입니다.",
+        "최근 다녀오신 해외 골프 여행은 그간의 노력이 헛되지 않았음을 증명해 준 소중한 계기가 되었습니다. 유창한 문장은 아니더라도 알고 있는 단어들을 조합해 현지에서 필요한 의사를 직접 전달했고, 소소한 소통이 가능해지는 놀라운 경험을 하셨습니다. 여전히 갈 길은 멀지만, '한마디도 못 하던 나'에서 '부족하게나마 말을 건네는 나'로 변해가는 과정 속에서 B님은 이제 영어 공부의 새로운 재미를 발견하고 계십니다.",
+        "미팅이나 회의에서 매번 한계를 느끼던 50대 기업인 A님은 막연한 기대감을 안고 1:1 온라인 수업을 시작하셨습니다. 5개월이 지난 지금, A님에게는 작지만 의미 있는 변화들이 생기고 있습니다. 머릿속에서만 맴돌던 단어들이 비즈니스 상황에 맞춰 조금씩 문장으로 연결되기 시작했고, 단어 위주로 듣던 영어도 이제는 전체적인 대화의 흐름을 조금씩 파악할 수 있는 수준이 되었습니다.",
+        "특히 최근 진행된 외국인 신입사원 채용 면접은 A님에게 큰 변곡점이 되었습니다. 이전 같으면 통역이나 실무자에게 전적으로 의존했겠지만, 이번에는 경영자로서 본인이 궁금했던 질문들을 미리 영어로 정리해 직접 질문하셨습니다. 지원자의 답변을 완벽히 이해하는 단계는 아닐지라도, 본인의 의사를 직접 전달하고 대화의 물꼬를 텄다는 점에서 소통의 실질적인 가능성을 확인한 소중한 경험이었습니다.",
+        "바쁜 일정 속에서도 5개월간 무결석으로 자리를 지킨 성실함이, '과연 될까'라는 의구심을 '조금만 더 하면 원하는 수준에 가겠구나'라는 확신 섞인 자신감으로 바꾸어 가고 있습니다."
+      ],
+      knowhow: "",
+      source: "출처: 파워잉글리시 공식 성공사례 자료"
+    }
   };
 
   var mOverlay = document.getElementById('modalOverlay');
