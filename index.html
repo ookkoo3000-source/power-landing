@@ -202,6 +202,40 @@
   .feature-card h3{font-size:17px;margin-bottom:8px;}
   .feature-card p{color:var(--ink-soft);font-size:14px;}
 
+  /* level table */
+  .level-table-wrap{
+    max-width:880px;margin:64px auto 0;background:var(--paper);border-radius:24px;
+    padding:40px 36px;box-shadow:var(--shadow);text-align:center;
+  }
+  .level-table-title{font-size:20px;margin-bottom:10px;}
+  .level-table-sub{color:var(--ink-soft);font-size:14.5px;margin-bottom:28px;}
+  .level-table-scroll{overflow-x:auto;}
+  .level-table{width:100%;border-collapse:collapse;min-width:480px;}
+  .level-table th{
+    background:var(--navy);color:#fff;font-size:13px;padding:12px 14px;text-align:center;
+  }
+  .level-table td{
+    padding:11px 14px;text-align:center;font-size:13.5px;color:var(--ink);
+    border-bottom:1px solid var(--line);
+  }
+  .level-table tr:nth-child(even) td{background:var(--cream);}
+  .level-table td:first-child{font-weight:800;color:var(--coral-dark);}
+
+  /* learning system / why grid */
+  .learning-system{background:var(--navy);color:#fff;}
+  .learning-system .section-title{color:#fff;}
+  .learning-system .section-sub{color:#B9B9D6;}
+  .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+  @media(max-width:900px){ .why-grid{grid-template-columns:repeat(2,1fr);} }
+  @media(max-width:520px){ .why-grid{grid-template-columns:1fr;} }
+  .why-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:18px;padding:26px 22px;}
+  .why-num{
+    display:inline-block;background:var(--coral);color:#fff;font-weight:800;font-size:13px;
+    padding:5px 14px;border-radius:999px;margin-bottom:14px;
+  }
+  .why-card h3{color:#fff;font-size:17px;margin-bottom:10px;}
+  .why-card p{color:#B9B9D6;font-size:13.5px;line-height:1.65;}
+
   /* teachers */
   .teachers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
   @media(max-width:900px){ .teachers-grid{grid-template-columns:repeat(2,1fr);} }
@@ -489,33 +523,88 @@
       <div class="features-grid">
         <div class="feature-card">
           <span class="stars">★★★★★</span>
+          <h3>파닉스 영어발음 과정</h3>
+          <p>장모음·단모음부터 정확히 잡는 발음 연습 → Storybook·workbook으로 기초 회화 → 영어 단어퀴즈와 유튜브 애니메이션 스크립트로 마무리하는 3단계 커리큘럼이에요.</p>
+        </div>
+        <div class="feature-card">
+          <span class="stars">★★★★★</span>
           <h3>영어유치원 준비반</h3>
-          <p>입학 전 꼭 필요한 생활 표현과 파닉스를 놀이처럼 익혀요.</p>
+          <p>입학 전 꼭 필요한 생활 표현과 파닉스를 놀이처럼 익히고, 영어 유치원 과제관리까지 함께 챙겨드려요.</p>
         </div>
         <div class="feature-card">
           <span class="stars">★★★★★</span>
           <h3>초등 회화 강화반</h3>
-          <p>학교 영어 수업에서 자신 있게 말할 수 있도록 회화력을 키워요.</p>
+          <p>기초 회화 → 영어 영작 → 영자신문 순으로 단계를 올리며, 학교 수업에서 자신 있게 말할 수 있는 실력을 키워요.</p>
         </div>
         <div class="feature-card">
           <span class="stars">★★★★★</span>
-          <h3>발음 교정 집중 케어</h3>
-          <p>부끄러움 없이 말하는 아이가 되도록 발음을 1:1로 교정해요.</p>
+          <h3>영어 스토리 · 리딩 과정</h3>
+          <p>"행복한 명작 읽기"(그림 동화 기반 6단계)와 "똑똑한 영어 읽기"(논픽션·픽션 6단계)로 미국 학년제 기준에 맞춘 다독 프로그램을 운영해요.</p>
         </div>
         <div class="feature-card">
           <span class="stars">★★★★★</span>
-          <h3>아이 맞춤 성장 리포트</h3>
-          <p>매 수업의 변화를 부모님도 함께 확인할 수 있어요.</p>
+          <h3>10단계 Lexile 레벨 진단</h3>
+          <p>국제 표준 Lexile 지수를 기반으로 한 10단계 진단 체계로 우리 아이의 정확한 읽기·회화 수준을 파악해요.</p>
         </div>
         <div class="feature-card">
           <span class="stars">★★★★★</span>
-          <h3>놀이처럼 즐거운 수업</h3>
-          <p>아이의 관심사를 반영한 주제로 지루하지 않게 배워요.</p>
+          <h3>Monthly 성장 리포트</h3>
+          <p>담임 코치의 정기 상담 + 학습컨설턴트 이중 관리 시스템으로, 매달 아이의 변화를 리포트로 확인할 수 있어요.</p>
         </div>
-        <div class="feature-card">
-          <span class="stars">★★★★★</span>
-          <h3>유연한 1:1 시간표</h3>
-          <p>아이 스케줄에 맞춰 자유롭게 수업 시간을 조율해요.</p>
+      </div>
+
+      <div class="level-table-wrap">
+        <h3 class="level-table-title">📊 우리 아이는 지금 어느 레벨일까요?</h3>
+        <p class="level-table-sub">국제 표준 Lexile 지수를 기반으로 한 10단계 진단 체계 — 무료 레벨테스트로 정확한 위치를 확인해드려요.</p>
+        <div class="level-table-scroll">
+          <table class="level-table">
+            <thead>
+              <tr><th>진단레벨</th><th>예상 학년 수준</th><th>Lexile 지수(변환지수)</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td>미취학 아동</td><td>0~80L</td></tr>
+              <tr><td>2</td><td>초1~초2</td><td>0~210L</td></tr>
+              <tr><td>3</td><td>초2~초3</td><td>80~280L</td></tr>
+              <tr><td>4</td><td>초3~초4</td><td>220~420L</td></tr>
+              <tr><td>5</td><td>초4~초5</td><td>300~500L</td></tr>
+              <tr><td>6</td><td>초5~초6</td><td>450~650L</td></tr>
+              <tr><td>7</td><td>초6~중1</td><td>570~770L</td></tr>
+              <tr><td>8</td><td>중1~중2</td><td>680~880L</td></tr>
+              <tr><td>9</td><td>중2~중3</td><td>750~950L</td></tr>
+              <tr><td>10</td><td>중3~고1</td><td>860~1020L</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEARNING SYSTEM -->
+  <section class="learning-system">
+    <div class="wrap">
+      <span class="eyebrow" style="display:flex;width:fit-content;margin:0 auto 16px;">학습 관리 시스템</span>
+      <h2 class="section-title">듣고 끝나지 않는, 관리받는 영어 수업</h2>
+      <p class="section-sub">20년간 다듬어온 자기주도 학습 지원과 이중 회원관리 시스템이에요.</p>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-num">Why 1</div>
+          <h3>최고의 강사진</h3>
+          <p>학력과 인성이 검증된 코치진을 전문 시스템으로 지속 관리하고, 정기적인 교수법 연구와 교육을 이수해요.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-num">Why 2</div>
+          <h3>자기주도 학습지원</h3>
+          <p>모든 수업은 녹음·녹화되어 반복 복습이 가능하고, 코칭교육 전문기업 노하우로 설계된 인터넷 강의도 함께 제공돼요.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-num">Why 3</div>
+          <h3>맞춤식 학습</h3>
+          <p>20년 이상 축적된 경험과 다양하고 차별화된 콘텐츠로, 레벨별·니즈별 1:1 맞춤 수업을 설계해요.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-num">Why 4</div>
+          <h3>차별화된 회원관리</h3>
+          <p>담임 코치의 정기 상담 + 담당 학습컨설턴트의 이중 관리, Monthly 평가로 학습 공백 없이 꾸준히 챙겨드려요.</p>
         </div>
       </div>
     </div>
@@ -599,10 +688,12 @@
         <p>성인 회화부터 시험 대비까지, 파워잉글리시의 20년 노하우는 모든 연령과 목적에 맞춰져 있습니다.</p>
       </div>
       <div class="also-tracks">
-        <div class="track-chip"><span class="dot"></span>성인 실무 회화</div>
-        <div class="track-chip"><span class="dot"></span>비즈니스 영어</div>
-        <div class="track-chip"><span class="dot"></span>TOEIC · TOEFL · IELTS</div>
-        <div class="track-chip"><span class="dot"></span>OPIc 스피킹 대비</div>
+        <div class="track-chip"><span class="dot"></span>성인 실무·비즈니스 회화</div>
+        <div class="track-chip"><span class="dot"></span>TOEIC·TOEFL·IELTS·OPIc</div>
+        <div class="track-chip"><span class="dot"></span>승무원·여행 영어</div>
+        <div class="track-chip"><span class="dot"></span>미국·캐나다·호주 유학 대비</div>
+        <div class="track-chip"><span class="dot"></span>유학생 학교과제·학점관리</div>
+        <div class="track-chip"><span class="dot"></span>영어로 배우는 과학·수학·사회</div>
       </div>
     </div>
   </section>
