@@ -290,7 +290,7 @@
   @media(max-width:520px){ .teachers-grid{grid-template-columns:1fr;} }
   .teacher-card{
     background:var(--paper);border-radius:18px;padding:26px 22px;border:1.5px solid var(--line);
-    text-align:center;transition:border-color .15s ease, transform .15s ease;
+    text-align:center;transition:border-color .15s ease, transform .15s ease;cursor:pointer;
   }
   .teacher-card:hover{border-color:var(--coral);transform:translateY(-3px);}
   .teacher-card .av{
@@ -300,9 +300,52 @@
   .teacher-card .av img{width:100%;height:100%;object-fit:cover;}
   .section-cta{text-align:center;margin-top:36px;}
   .teacher-card h3{font-size:16.5px;margin-bottom:4px;}
+  .teacher-card .nickname{font-size:12px;color:var(--ink-soft);font-weight:600;margin-bottom:6px;}
   .teacher-card .role{font-size:12.5px;color:var(--coral-dark);font-weight:700;margin-bottom:10px;}
   .teacher-card p{font-size:13px;color:var(--ink-soft);line-height:1.6;}
+  .teacher-card .more-hint{font-size:12px;color:var(--coral-dark);font-weight:700;margin-top:12px;}
   .teachers-note{text-align:center;color:var(--ink-soft);font-size:12.5px;margin-top:24px;}
+
+  /* teacher modal */
+  .modal-overlay{
+    display:none;position:fixed;inset:0;background:rgba(20,20,40,0.55);z-index:1000;
+    align-items:center;justify-content:center;padding:24px;
+  }
+  .modal-overlay.open{display:flex;}
+  .modal-box{
+    background:var(--paper);border-radius:22px;max-width:560px;width:100%;
+    max-height:88vh;overflow-y:auto;box-shadow:var(--shadow-lg);position:relative;
+  }
+  .modal-close{
+    position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;
+    background:var(--cream);border:none;font-size:18px;cursor:pointer;color:var(--navy-soft);
+    display:flex;align-items:center;justify-content:center;z-index:2;
+  }
+  .modal-close:hover{background:var(--coral-light);color:var(--coral-dark);}
+  .modal-head{padding:36px 32px 20px;text-align:center;border-bottom:1px solid var(--line);}
+  .modal-head .av{width:104px;height:104px;border-radius:50%;margin:0 auto 16px;overflow:hidden;box-shadow:var(--shadow);color:#fff;font-weight:800;font-size:38px;display:flex;align-items:center;justify-content:center;}
+  .modal-head .av img{width:100%;height:100%;object-fit:cover;}
+  .modal-head .av .initial{width:100%;height:100%;align-items:center;justify-content:center;color:#fff;font-size:38px;font-weight:800;}
+  .modal-head h3{font-size:21px;margin-bottom:2px;}
+  .modal-head .nickname{font-size:13px;color:var(--ink-soft);font-weight:600;margin-bottom:12px;}
+  .modal-head .role{font-size:12.5px;color:var(--coral-dark);font-weight:700;
+    background:var(--coral-light);display:inline-block;padding:6px 14px;border-radius:999px;}
+  .modal-body{padding:28px 32px 32px;}
+  .modal-section{margin-bottom:22px;}
+  .modal-section:last-child{margin-bottom:0;}
+  .modal-section h4{font-size:13px;color:var(--navy);margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+  .modal-section ul{margin:0;}
+  .modal-section li{
+    font-size:14px;color:var(--ink-soft);line-height:1.7;padding-left:16px;position:relative;margin-bottom:6px;
+  }
+  .modal-section li:before{content:"·";position:absolute;left:2px;color:var(--coral);font-weight:900;}
+  .modal-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;}
+  .modal-tags .tag{font-size:11.5px;font-weight:700;color:var(--navy-soft);background:var(--cream);
+    border:1px solid var(--line);padding:4px 9px;border-radius:8px;}
+  .modal-cta{padding:0 32px 32px;}
+  @media (prefers-reduced-motion: no-preference){
+    .modal-box{animation:softPop .3s cubic-bezier(.22,1,.36,1);}
+  }
 
   /* before/after */
   .ba-section{background:var(--paper);}
@@ -890,32 +933,40 @@
       <h2 class="section-title">아이와 눈높이를 맞추는 전문 코치진</h2>
       <p class="section-sub">200여 명의 코치 중, 유아·초등 지도 경험이 풍부한 코치 몇 분을 먼저 소개해드려요.</p>
       <div class="teachers-grid">
-        <div class="teacher-card">
+        <div class="teacher-card" data-coach="julie" tabindex="0" role="button">
           <div class="av"><img src="assets/teachers/teacher-julie.png" alt="Julie 코치"></div>
           <h3>Julie 코치</h3>
+          <div class="nickname">한영 이중언어</div>
           <div class="role">발음 · 스피치 전문</div>
           <p>국제학교 스피치·발표 수업 경력으로 아이의 두려움을 줄이고 자신감을 키워줘요.</p>
+          <div class="more-hint">프로필 자세히 보기 →</div>
         </div>
-        <div class="teacher-card">
-          <div class="av"><img src="assets/teachers/teacher-eric.png" alt="Eric 코치"></div>
-          <h3>Eric 코치</h3>
-          <div class="role">유아~성인 회화</div>
-          <p>유아부터 성인까지 폭넓은 회화 지도 경험, 영어 미술교육까지 접목한 편안한 수업.</p>
-        </div>
-        <div class="teacher-card">
+        <div class="teacher-card" data-coach="alice" tabindex="0" role="button">
           <div class="av"><img src="assets/teachers/teacher-alice.png" alt="Alice 코치"></div>
           <h3>Alice 코치</h3>
+          <div class="nickname">한영 이중언어</div>
           <div class="role">TESOL · 놀이 영어</div>
           <p>TESOL 자격과 영어놀이학교 담임 경력의 전연령 통합 교육 노하우.</p>
+          <div class="more-hint">프로필 자세히 보기 →</div>
         </div>
-        <div class="teacher-card">
-          <div class="av"><img src="assets/teachers/teacher-dana.png" alt="Dana 코치"></div>
-          <h3>Dana 코치</h3>
-          <div class="role">영어교육 석사</div>
-          <p>영어교육 전공 석사, 초등 교사 경력과 10년 이상의 어학원 운영 노하우.</p>
+        <div class="teacher-card" data-coach="angela" tabindex="0" role="button">
+          <div class="av" style="background:linear-gradient(135deg,#FF6B4D,#FF8A6E);">A</div>
+          <h3>Angela Quinn 코치</h3>
+          <div class="nickname">미국 원어민</div>
+          <div class="role">유아교육 전공</div>
+          <p>Early Childhood Development(유아교육) 전공, 홈스쿨링 지도 경험이 있는 미국 원어민 코치예요.</p>
+          <div class="more-hint">프로필 자세히 보기 →</div>
+        </div>
+        <div class="teacher-card" data-coach="brittany" tabindex="0" role="button">
+          <div class="av" style="background:linear-gradient(135deg,#1FB8A6,#3FD6C4);">B</div>
+          <h3>Brittany Blanks 코치</h3>
+          <div class="nickname">미국 원어민</div>
+          <div class="role">초등교육 전공</div>
+          <p>초등교육 전공, 일본·미국 교육기관에서 아이들을 지도한 경험이 풍부한 원어민 코치예요.</p>
+          <div class="more-hint">프로필 자세히 보기 →</div>
         </div>
       </div>
-      <p class="teachers-note">※ 매칭되는 코치는 레벨테스트 결과와 아이 성향에 따라 달라질 수 있어요.</p>
+      <p class="teachers-note">한국인 코치와 미국 원어민 코치 중 아이에게 맞는 쪽으로 매칭해드려요. 매칭되는 코치는 레벨테스트 결과와 아이 성향에 따라 달라질 수 있어요.</p>
       <div class="section-cta"><a href="teachers.html" class="btn btn-ghost">전체 코치진 더 보기</a></div>
     </div>
   </section>
@@ -1210,6 +1261,39 @@
   </div>
 </footer>
 
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-box" role="dialog" aria-modal="true">
+    <button class="modal-close" id="modalClose" aria-label="닫기">✕</button>
+    <div class="modal-head">
+      <div class="av" id="modalAv"><img id="modalPhoto" src="" alt=""><div id="modalInitial" class="initial" style="display:none;"></div></div>
+      <h3 id="modalName"></h3>
+      <div class="nickname" id="modalNickname"></div>
+      <span class="role" id="modalRole"></span>
+    </div>
+    <div class="modal-body">
+      <div class="modal-section">
+        <h4>🎓 학력 및 경력</h4>
+        <ul id="modalEducation"></ul>
+      </div>
+      <div class="modal-section">
+        <h4>📚 수업 가능 영역</h4>
+        <ul id="modalCareer"></ul>
+      </div>
+      <div class="modal-section">
+        <h4>✅ 주요 키워드</h4>
+        <div class="modal-tags" id="modalTags"></div>
+      </div>
+      <div class="modal-section">
+        <h4>✨ 코치의 장점</h4>
+        <ul id="modalStrengths"></ul>
+      </div>
+    </div>
+    <div class="modal-cta">
+      <a href="#lead-form" class="btn btn-primary btn-block" style="width:100%;">이 코치로 무료 상담 신청하기</a>
+    </div>
+  </div>
+</div>
+
 <script>
   // FAQ accordion
   document.querySelectorAll('.faq-item').forEach(function(item){
@@ -1308,6 +1392,150 @@
       el.textContent = to.toFixed(decimals) + (el.getAttribute('data-suffix') || '');
     });
   }
+
+  // Coach preview cards -> detail modal
+  var coachData = {
+    julie: {
+      name: "김도이 코치", nickname: "Julie · 한영 이중언어", role: "발음 · 스피치 전문",
+      photo: "assets/teachers/teacher-julie.png",
+      education: [
+        "Brigham Young University, USA (Communication Disorder 전공)",
+        "미국에서 초등~고교 졸업",
+        "미국에서 성장하고 교육받아 원어민급 발음과 영어구사력 보유, 한국어 가능",
+        "초·중·고, 국제학교 학생 대상 영어 스피치, 발표, 디베이팅 수업 경력"
+      ],
+      career: [
+        "유아, 초등영어. 파닉스. 영어스토리. 쓰기.",
+        "중·고등 수행평가 / 내신·독해 / 수능듣기·수능독해",
+        "국제학교 수업, 영어에세이 첨삭, 유학대비",
+        "참여형/대화형 스피킹 트레이닝",
+        "인증시험 (토익, 토익스피킹, 토플, 아이엘츠)"
+      ],
+      tags: ["토익 · 토익스피킹", "토플 · 아이엘츠 · 오픽", "에세이과정", "국제학교 수업"],
+      strengths: [
+        "발음/억양/리듬/집중케어 수업진행",
+        "학생의 성향과 영어 수준에 맞춘 친근한 수업진행",
+        "영어에 대한 두려움을 줄이고 자신감을 심어주는 수업진행"
+      ]
+    },
+    alice: {
+      name: "임건희 코치", nickname: "Alice · 한영 이중언어", role: "TESOL · 놀이 영어",
+      photo: "assets/teachers/teacher-alice.png",
+      education: [
+        "숙명여자대학교 TESOL 자격취득",
+        "전) 영어놀이학교 전임 담임교사",
+        "5년 이상의 전연령 통합 교육 경력",
+        "미술심리상담사 & 외국어 교육관리사 2급"
+      ],
+      career: [
+        "Early Childhood English: 놀이학교 담임 경력을 바탕으로 한 영어 몰입형 유아 수업",
+        "Elite Junior Course: 초·중·고 내신, 파닉스, 수행평가",
+        "Adult & Professional: IELTS, TOEIC, OPIc 등 공인 시험 및 비즈니스 회화",
+        "Creative Art English: 미술과 영어를 결합한 융합 교육 커리큘럼"
+      ],
+      tags: ["토익(스피킹)", "오픽", "국제 중고 대비 수업", "INTERVIEW"],
+      strengths: [
+        "TESOL의 검증된 교수법",
+        "영어놀이학교 담임 출신의 압도적 케어 능력",
+        "미술상담자격을 바탕으로 학습자의 심리적 장벽을 정확히 진단"
+      ]
+    },
+    angela: {
+      name: "Angela Quinn 코치", nickname: "미국 원어민 · 전화/화상(Zoom)", role: "유아교육 전공",
+      initial: "A", initialColor: "linear-gradient(135deg,#FF6B4D,#FF8A6E)",
+      education: [
+        "Chesapeake College — Liberal Arts & Sciences",
+        "Early Childhood Development (유아교육) 전공"
+      ],
+      career: [
+        "홈스쿨링 지도 경력",
+        "수어(Sign Language) 지도 가능",
+        "미술 / 아웃도어 활동 연계 수업"
+      ],
+      tags: ["유아 전문", "Vocabulary·Reading·Writing", "원어민 발음", "전화·화상 가능"],
+      strengths: [
+        "Motto: Serving Others — 다른 사람을 돕는 것을 삶의 원칙으로 삼는 코치예요",
+        "Good with Young Children — 어린 아이를 다루는 데 특히 강점이 있습니다",
+        "Vocabulary / Reading / Writing 지도에 강점"
+      ]
+    },
+    brittany: {
+      name: "Brittany Blanks 코치", nickname: "미국 원어민 · 전화/화상(Zoom)", role: "초등교육 전공",
+      initial: "B", initialColor: "linear-gradient(135deg,#1FB8A6,#3FD6C4)",
+      education: [
+        "Western Governor's University",
+        "Elementary Education (초등교육) 전공"
+      ],
+      career: [
+        "일본에서 2년간 교육 경력",
+        "Kumon 학습센터 (Las Vegas) 1.5년",
+        "미국 Utah 유치원(preschool) 1년"
+      ],
+      tags: ["유치원·초등 전문", "Speaking·Reading", "원어민 발음", "전화·화상 가능"],
+      strengths: [
+        "Motto: \"Never stop learning because the world never stops teaching\"",
+        "Good with children — 다양한 연령의 아이를 다뤄본 경험이 풍부합니다",
+        "Speaking / Reading 지도에 강점"
+      ]
+    }
+  };
+
+  var modalOverlay = document.getElementById('modalOverlay');
+  function fillList(elId, items){
+    var el = document.getElementById(elId);
+    el.innerHTML = '';
+    items.forEach(function(t){
+      var li = document.createElement('li');
+      li.textContent = t;
+      el.appendChild(li);
+    });
+  }
+  function openCoachModal(id){
+    var c = coachData[id];
+    if(!c) return;
+    var photoEl = document.getElementById('modalPhoto');
+    var initialEl = document.getElementById('modalInitial');
+    if(c.photo){
+      photoEl.src = c.photo;
+      photoEl.alt = c.name;
+      photoEl.style.display = '';
+      initialEl.style.display = 'none';
+    } else {
+      photoEl.style.display = 'none';
+      initialEl.style.display = 'flex';
+      initialEl.textContent = c.initial || c.name.charAt(0);
+      initialEl.style.background = c.initialColor || 'var(--navy)';
+    }
+    document.getElementById('modalName').textContent = c.name;
+    document.getElementById('modalNickname').textContent = c.nickname;
+    document.getElementById('modalRole').textContent = c.role;
+    fillList('modalEducation', c.education);
+    fillList('modalCareer', c.career);
+    fillList('modalStrengths', c.strengths);
+    var tagsEl = document.getElementById('modalTags');
+    tagsEl.innerHTML = '';
+    c.tags.forEach(function(t){
+      var span = document.createElement('span');
+      span.className = 'tag';
+      span.textContent = t;
+      tagsEl.appendChild(span);
+    });
+    modalOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeCoachModal(){
+    modalOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.querySelectorAll('.teacher-card[data-coach]').forEach(function(card){
+    card.addEventListener('click', function(){ openCoachModal(card.getAttribute('data-coach')); });
+    card.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openCoachModal(card.getAttribute('data-coach')); }
+    });
+  });
+  document.getElementById('modalClose').addEventListener('click', closeCoachModal);
+  modalOverlay.addEventListener('click', function(e){ if(e.target === modalOverlay) closeCoachModal(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeCoachModal(); });
 </script>
 
 </body>
