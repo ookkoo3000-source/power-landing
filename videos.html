@@ -85,9 +85,27 @@
   .nav-tel small{display:block;font-weight:500;color:var(--ink-soft);font-size:11px;}
   .burger{display:none;background:none;border:none;font-size:24px;cursor:pointer;color:var(--navy);}
   @media(max-width:900px){
-    .nav-links, .nav-tel{display:none;}
+    .nav-links, .nav-cta{display:none;}
     .burger{display:block;}
   }
+
+  /* mobile nav overlay */
+  .mobile-nav-overlay{display:none;position:fixed;inset:0;z-index:300;background:rgba(20,20,40,0.5);}
+  .mobile-nav-overlay.open{display:block;}
+  .mobile-nav-panel{
+    position:absolute;top:0;right:0;height:100%;width:min(80vw,320px);background:#fff;
+    box-shadow:-10px 0 34px rgba(0,0,0,0.18);padding:22px 24px;display:flex;flex-direction:column;
+    transform:translateX(100%);transition:transform .28s cubic-bezier(.22,1,.36,1);overflow-y:auto;
+  }
+  .mobile-nav-overlay.open .mobile-nav-panel{transform:translateX(0);}
+  .mobile-nav-close{align-self:flex-end;background:none;border:none;font-size:26px;color:var(--navy-soft);cursor:pointer;padding:6px;margin-bottom:8px;}
+  .mobile-nav-panel a{
+    padding:15px 6px;font-size:17px;font-weight:700;color:var(--navy);border-bottom:1px solid var(--line);
+  }
+  .mobile-nav-panel a.active{color:var(--coral-dark);}
+  .mobile-nav-panel .mnp-cta{margin-top:20px;}
+  .mobile-nav-panel .mnp-tel{display:block;text-align:center;margin-top:14px;font-weight:700;color:var(--navy);font-size:15px;}
+  .mobile-nav-panel .mnp-tel small{display:block;font-weight:500;color:var(--ink-soft);font-size:12px;margin-top:2px;}
 
   /* page header */
   .page-hero{padding:64px 0 16px;text-align:center;}
@@ -214,7 +232,6 @@
       <a href="teachers.html">코치진</a>
       <a href="reviews.html">후기</a>
       <a href="videos.html" class="active">샘플영상</a>
-      <a href="usa.html">Power USA</a>
       <a href="index.html#faq">FAQ</a>
       <a href="blog.html">블로그</a>
     </nav>
@@ -225,6 +242,21 @@
     <button class="burger" id="burgerBtn" aria-label="메뉴 열기">☰</button>
   </div>
 </header>
+
+<div class="mobile-nav-overlay" id="mobileNavOverlay">
+  <div class="mobile-nav-panel">
+    <button class="mobile-nav-close" id="mobileNavClose" aria-label="메뉴 닫기">✕</button>
+    <a href="index.html#courses">코스</a>
+    <a href="index.html#process">진행방식</a>
+    <a href="teachers.html">코치진</a>
+    <a href="reviews.html">후기</a>
+    <a href="videos.html" class="active">샘플영상</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="blog.html">블로그</a>
+    <a href="index.html#lead-form" class="btn btn-primary mnp-cta">무료 상담 신청</a>
+    <a href="tel:1899-2277" class="mnp-tel">1899-2277<small>평일 09:30~18:00</small></a>
+  </div>
+</div>
 
 <main>
   <section class="page-hero">
@@ -299,7 +331,6 @@
           <li><a href="teachers.html">코치진 소개</a></li>
           <li><a href="reviews.html">학부모 후기</a></li>
           <li><a href="videos.html">샘플 수업영상</a></li>
-          <li><a href="usa.html">Power USA</a></li>
           <li><a href="index.html#faq">자주 묻는 질문</a></li>
           <li><a href="blog.html">블로그</a></li>
         </ul>
@@ -386,8 +417,26 @@
     });
   });
 
+  var mobileNavOverlay = document.getElementById('mobileNavOverlay');
   document.getElementById('burgerBtn').addEventListener('click', function(){
-    window.location.href = 'index.html#lead-form';
+    mobileNavOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+  document.getElementById('mobileNavClose').addEventListener('click', function(){
+    mobileNavOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+  mobileNavOverlay.addEventListener('click', function(e){
+    if (e.target === mobileNavOverlay) {
+      mobileNavOverlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  });
+  mobileNavOverlay.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      mobileNavOverlay.classList.remove('open');
+      document.body.style.overflow = '';
+    });
   });
 
   if ('IntersectionObserver' in window) {
