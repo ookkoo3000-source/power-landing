@@ -146,6 +146,14 @@
   .teacher-card .tag{font-size:11.5px;font-weight:700;color:var(--navy-soft);background:var(--cream);
     border:1px solid var(--line);padding:4px 9px;border-radius:8px;}
 
+  .grid-divider{
+    grid-column:1/-1;text-align:center;margin:20px 0 4px;position:relative;
+  }
+  .grid-divider span{
+    display:inline-block;background:var(--navy);color:#fff;font-weight:700;font-size:13px;
+    padding:8px 20px;border-radius:999px;
+  }
+
   .more-note{
     max-width:640px;margin:56px auto 0;text-align:center;background:var(--paper);
     border:1.5px dashed var(--line);border-radius:18px;padding:32px 28px;
@@ -348,6 +356,7 @@
           <p class="fit-note">💡 "영어는 재밌는 것"이라는 경험이 먼저 필요한 아이에게 추천해요</p>
           <div class="more-hint">프로필 자세히 보기 →</div>
         </div>
+        <div class="grid-divider"><span>🇺🇸 원어민 베스트 3 코치</span></div>
         <div class="teacher-card" data-coach="angela" tabindex="0" role="button">
           <div class="av initial" style="background:linear-gradient(135deg,#FF6B4D,#FF8A6E);">A</div>
           <h3>Angela Quinn 코치</h3>
@@ -378,20 +387,10 @@
           <p class="fit-note">💡 인내심 있고 꾸준한 지도를 원하는 아이에게 추천해요</p>
           <div class="more-hint">프로필 자세히 보기 →</div>
         </div>
-        <div class="teacher-card" data-coach="hollyi" tabindex="0" role="button">
-          <div class="av initial" style="background:linear-gradient(135deg,#C9A15A,#E0BE85);">H</div>
-          <h3>Holly Ibach 코치</h3>
-          <div class="nickname">미국 원어민</div>
-          <div class="role">스피치·발달 전문</div>
-          <p>연극·커뮤니케이션을 전공하고 아동발달 지도, 대중연설(Public Speaking) 경력을 갖춘 미국 원어민 코치예요. 발음과 표현력을 키우는 데 강점이 있습니다.</p>
-          <div class="tags"><span class="tag">원어민 발음</span><span class="tag">스피치 전문</span><span class="tag">전화·화상 가능</span></div>
-          <p class="fit-note">💡 발표력·자신감을 함께 키우고 싶은 아이에게 추천해요</p>
-          <div class="more-hint">프로필 자세히 보기 →</div>
-        </div>
       </div>
 
       <div class="more-note">
-        <h3>5명 모두 좋다면, 어떻게 골라야 할까요?</h3>
+        <h3>8명 모두 좋다면, 어떻게 골라야 할까요?</h3>
         <p>고민하지 않으셔도 돼요. 무료 레벨테스트를 신청하시면 아이의 성향과 현재 수준을 먼저 확인한 뒤, 이 중 가장 잘 맞는 코치로 매칭해드려요.</p>
         <a href="index.html#lead-form" class="btn btn-primary">무료 레벨테스트 신청하기</a>
       </div>
@@ -704,26 +703,6 @@
         "Motto: \"Anyone who has never made a mistake has never tried anything new.\" — Albert Einstein",
         "Patience / Flexibility / Creativity — 인내심과 유연함, 창의력을 갖춘 수업 진행",
         "학교·가정 지도 경험이 풍부해 다양한 아이 성향에 맞춘 수업이 가능해요"
-      ]
-    },
-    hollyi: {
-      name: "Holly Ibach 코치", nickname: "미국 원어민 · 전화/화상(Zoom)", role: "스피치·발달 전문",
-      initial: "H", initialColor: "linear-gradient(135deg,#C9A15A,#E0BE85)",
-      education: [
-        "Theater and Communications 학위",
-        "AADA (American Academy of Dramatic Arts), N.Y.C."
-      ],
-      career: [
-        "아동발달(Childhood development) 지도 경력",
-        "연극(Theater) 및 대중연설(Public Speaking) 경력",
-        "글쓰기/에디팅, 헤드헌팅(인재 발굴) 비즈니스 경력",
-        "자원봉사 활동"
-      ],
-      tags: ["스피치 전문", "발음 교정", "원어민 발음", "전화·화상 가능"],
-      strengths: [
-        "Motto: \"Learning is a journey, not a destination\"",
-        "Word Accuracy / Pronunciation — 정확한 발음과 표현력 지도에 강점",
-        "Motivator — 아이가 자신감을 갖고 말할 수 있도록 이끄는 코치예요"
       ]
     }
   };
