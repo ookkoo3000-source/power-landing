@@ -1109,6 +1109,8 @@
         </div>
 
         <form class="lead-form" id="leadForm">
+          <input type="hidden" name="_subject" value="[파워잉글리시] 새 상담 신청이 접수됐어요">
+          <input type="hidden" name="_template" value="table">
           <div id="formFields">
             <div class="field">
               <label for="parentName">보호자 성함</label>
@@ -1312,12 +1314,30 @@
     });
   });
 
-  // Lead form submit (client-side only — connect to a real backend/email service before going live)
+  // Lead form submit -> forwarded to ookkoo12@naver.com via FormSubmit.co
   var leadForm = document.getElementById('leadForm');
   leadForm.addEventListener('submit', function(e){
     e.preventDefault();
-    document.getElementById('formFields').style.display = 'none';
-    document.getElementById('formSuccess').style.display = 'block';
+    var submitBtn = leadForm.querySelector('button[type="submit"]');
+    var originalText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = '전송 중...';
+    var data = {};
+    new FormData(leadForm).forEach(function(value, key){ data[key] = value; });
+    fetch('https://formsubmit.co/ajax/ookkoo12@naver.com', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
+    }).then(function(res){
+      if (!res.ok) throw new Error('request failed');
+      document.getElementById('formFields').style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    }).catch(function(){
+      alert('전송 중 문제가 발생했어요. 전화(010-2704-5776)로 문의해주시면 바로 도와드릴게요.');
+    }).finally(function(){
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+    });
   });
 
   // Mobile burger -> scroll to form as a simple fallback nav
