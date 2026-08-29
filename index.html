@@ -648,7 +648,7 @@
       <a href="blog.html">블로그</a>
     </nav>
     <div class="nav-cta">
-      <a href="tel:010-2704-5776" class="nav-tel">010-2704-5776<small>평일 09:30~18:00</small></a>
+      <a href="tel:010-3131-5305" class="nav-tel">010-3131-5305<small>평일 09:30~18:00</small></a>
       <a href="#lead-form" class="btn btn-primary">무료 상담 신청</a>
     </div>
     <button class="burger" id="burgerBtn" aria-label="메뉴 열기">☰</button>
@@ -666,7 +666,7 @@
     <a href="#faq">FAQ</a>
     <a href="blog.html">블로그</a>
     <a href="#lead-form" class="btn btn-primary mnp-cta">무료 상담 신청</a>
-    <a href="tel:010-2704-5776" class="mnp-tel">010-2704-5776<small>평일 09:30~18:00</small></a>
+    <a href="tel:010-3131-5305" class="mnp-tel">010-3131-5305<small>평일 09:30~18:00</small></a>
   </div>
 </div>
 
@@ -681,7 +681,7 @@
         <p class="lead">읽고 외우는 영어와 직접 듣고 대답하는 영어는 달라요. 우리 아이가 어디에서 말문이 막히는지, 먼저 확인해보세요.</p>
         <div class="hero-cta">
           <a href="#lead-form" class="btn btn-primary btn-lg">우리 아이 무료 말하기 진단받기</a>
-          <a href="tel:010-2704-5776" class="btn btn-ghost btn-lg">전화로 상담하기</a>
+          <a href="tel:010-3131-5305" class="btn btn-ghost btn-lg">전화로 상담하기</a>
         </div>
         <p class="hero-microcopy">부담 없는 1:1 체험수업 + 현재 수준 안내</p>
         <div class="trust-row">
@@ -1186,6 +1186,20 @@
               </select>
             </div>
             <div class="field">
+              <label for="plan">희망 수강 플랜 <span class="field-optional">(선택)</span></label>
+              <select id="plan" name="plan">
+                <option value="" selected>선택 안 함 (상담 후 결정할게요)</option>
+                <option>주3회 20분 · 1개월</option>
+                <option>주3회 20분 · 3개월</option>
+                <option>주3회 30분 · 1개월</option>
+                <option>주3회 30분 · 3개월</option>
+                <option>주5회 20분 · 1개월</option>
+                <option>주5회 20분 · 3개월</option>
+                <option>주5회 30분 · 1개월</option>
+                <option>주5회 30분 · 3개월</option>
+              </select>
+            </div>
+            <div class="field">
               <label for="concern">고민되는 점 · 상담받고 싶은 내용 <span class="field-optional">(선택)</span></label>
               <textarea id="concern" name="concern" rows="3" placeholder="예) 영어학원은 다니는데 외국인 앞에서는 말을 못 해요 / 발음이 부끄러워서 자신 없어해요 등"></textarea>
             </div>
@@ -1208,7 +1222,7 @@
     <div class="wrap">
       <span class="eyebrow" style="display:flex;width:fit-content;margin:0 auto 16px;">FAQ</span>
       <h2 class="section-title">자주 묻는 질문</h2>
-      <p class="section-sub">궁금한 점이 더 있다면 언제든 전화(010-2704-5776)로 문의해주세요.</p>
+      <p class="section-sub">궁금한 점이 더 있다면 언제든 전화(010-3131-5305)로 문의해주세요.</p>
       <div class="faq">
         <div class="faq-item">
           <button class="faq-q">몇 살부터 수업이 가능한가요?<span class="plus">+</span></button>
@@ -1296,7 +1310,7 @@
       <div class="foot-col">
         <h4>고객센터</h4>
         <ul>
-          <li>대표전화 010-2704-5776</li>
+          <li>대표전화 010-3131-5305</li>
           <li>평일 09:30~18:00 (점심 12:00~13:00 제외)</li>
           <li>서울 강남구 테헤란로 25</li>
         </ul>
@@ -1378,7 +1392,7 @@
       document.getElementById('formFields').style.display = 'none';
       document.getElementById('formSuccess').style.display = 'block';
     }).catch(function(){
-      alert('전송 중 문제가 발생했어요. 전화(010-2704-5776)로 문의해주시면 바로 도와드릴게요.');
+      alert('전송 중 문제가 발생했어요. 전화(010-3131-5305)로 문의해주시면 바로 도와드릴게요.');
     }).finally(function(){
       submitBtn.disabled = false;
       submitBtn.textContent = originalText;
