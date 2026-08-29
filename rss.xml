@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<channel>
+  <title>파워랭귀지 블로그</title>
+  <link>https://pe.primeadmit.co.kr/blog.html</link>
+  <description>파워랭귀지가 전하는 영어 학습 팁과 소식</description>
+  <language>ko</language>
+
+  <item>
+    <title>어린이 화상영어 추천, 몇 살부터 어떻게 시작할까요?</title>
+    <link>https://pe.primeadmit.co.kr/blog-kids-video-english-recommend.html</link>
+    <description>시작하기 좋은 나이, 화면 노출 걱정, 학원과의 차이까지 — 어린이 화상영어 가이드.</description>
+    <pubDate>Thu, 27 Aug 2026 00:00:00 +0900</pubDate>
+    <guid>https://pe.primeadmit.co.kr/blog-kids-video-english-recommend.html</guid>
+  </item>
+
+  <item>
+    <title>초등 원어민 화상영어, 이 5가지만 확인하고 고르세요</title>
+    <link>https://pe.primeadmit.co.kr/blog-native-english-recommend.html</link>
+    <description>코치 전공, 1:1 여부, 재매칭, 무료체험, 수업 시간까지 — 광고 문구 말고 진짜 확인해야 할 기준 5가지.</description>
+    <pubDate>Thu, 27 Aug 2026 00:00:00 +0900</pubDate>
+    <guid>https://pe.primeadmit.co.kr/blog-native-english-recommend.html</guid>
+  </item>
+
+</channel>
+</rss>
