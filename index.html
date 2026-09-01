@@ -1374,8 +1374,9 @@
     });
   });
 
-  // Lead form submit -> forwarded to ookkoo12@naver.com via FormSubmit.co
+  // Lead form submit -> forwarded to ookkoo12@naver.com via FormSubmit.co + logged to Google Sheet
   var leadForm = document.getElementById('leadForm');
+  var SHEET_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbxC9Y0UNFUF0dMRfEz2Gw0YbidjZ_yP8r0oUIcY733lUpw7Xsx8M6PHbJEDnDcEboWzkQ/exec';
   leadForm.addEventListener('submit', function(e){
     e.preventDefault();
     var submitBtn = leadForm.querySelector('button[type="submit"]');
@@ -1384,6 +1385,17 @@
     submitBtn.textContent = '전송 중...';
     var data = {};
     new FormData(leadForm).forEach(function(value, key){ data[key] = value; });
+
+    // Best-effort: log to Google Sheet (fire-and-forget, doesn't block email flow or success UI)
+    try {
+      fetch(SHEET_WEBAPP_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(data)
+      }).catch(function(){});
+    } catch (err) {}
+
     fetch('https://formsubmit.co/ajax/ookkoo12@naver.com', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
