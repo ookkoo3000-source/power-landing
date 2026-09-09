@@ -26,6 +26,21 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://pe.primeadmit.co.kr/blog-elementary-3rd-grade-video-english.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://pe.primeadmit.co.kr/blog-elementary-2nd-grade-video-english.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://pe.primeadmit.co.kr/blog-elementary-1st-grade-video-english.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://pe.primeadmit.co.kr/blog-toddler-english-conversation.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
