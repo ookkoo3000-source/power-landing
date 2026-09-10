@@ -26,6 +26,21 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://pe.primeadmit.co.kr/blog-native-english-class-comparison.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://pe.primeadmit.co.kr/blog-elementary-english-class-priority.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://pe.primeadmit.co.kr/blog-kids-english-class-types.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://pe.primeadmit.co.kr/blog-elementary-3rd-grade-video-english.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
