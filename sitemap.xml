@@ -1,6 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://pe.primeadmit.co.kr/blog-phonics-study-order.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://pe.primeadmit.co.kr/blog-english-pronunciation-timing.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://pe.primeadmit.co.kr/blog-elementary-english-listening.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://pe.primeadmit.co.kr/blog-english-picture-book-reading.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://pe.primeadmit.co.kr/blog-english-chant-song-speaking.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://pe.primeadmit.co.kr/blog-elementary-vacation-english-plan.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://pe.primeadmit.co.kr/blog-elementary-english-diary.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://pe.primeadmit.co.kr/blog-elementary-english-self-directed.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://pe.primeadmit.co.kr/blog-elementary-english-vocabulary.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://pe.primeadmit.co.kr/blog-elementary-english-speaking-assessment.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://pe.primeadmit.co.kr/index.html</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
