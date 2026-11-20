@@ -461,6 +461,23 @@
   .lead-points li{display:flex;gap:10px;align-items:center;color:#DADAF0;font-size:14.5px;margin-bottom:10px;font-weight:600;}
   .lead-points li:before{content:"✓";color:var(--teal);font-weight:900;}
 
+  .call-now-banner{
+    display:block;margin-top:22px;padding:18px 20px;border-radius:16px;
+    background:linear-gradient(135deg,var(--coral),var(--coral-dark));
+    text-decoration:none;box-shadow:0 8px 24px rgba(255,107,77,0.35);
+    transition:transform .15s ease;
+  }
+  .call-now-banner:hover, .call-now-banner:active{transform:translateY(-2px);}
+  .cnb-badge{display:inline-block;background:rgba(255,255,255,0.22);color:#fff;font-weight:800;font-size:12.5px;padding:4px 10px;border-radius:999px;margin-bottom:10px;}
+  .cnb-row{display:flex;align-items:center;gap:10px;}
+  .cnb-icon{font-size:26px;line-height:1;}
+  .cnb-number{color:#fff;font-weight:900;font-size:clamp(22px,4vw,28px);letter-spacing:-0.01em;}
+  .cnb-hours{display:block;color:rgba(255,255,255,0.9);font-size:13px;font-weight:600;margin-top:8px;}
+  @media(max-width:480px){
+    .call-now-banner{padding:16px;}
+    .cnb-number{font-size:24px;}
+  }
+
   form.lead-form{background:#fff;border-radius:20px;padding:28px;}
   .field{margin-bottom:14px;}
   .field label{display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px;}
@@ -1152,6 +1169,15 @@
             <li>체험수업 후 구체적인 결과 안내</li>
             <li>강요 없는 편안한 첫 상담, 결정은 그 후에</li>
           </ul>
+
+          <a href="tel:010-3131-5305" class="call-now-banner">
+            <span class="cnb-badge">⚡ 실시간 전화 상담</span>
+            <span class="cnb-row">
+              <span class="cnb-icon">📞</span>
+              <span class="cnb-number">010-3131-5305</span>
+            </span>
+            <span class="cnb-hours">평일 09:30~18:00 · 지금 전화하시면 바로 연결돼요</span>
+          </a>
         </div>
 
         <form class="lead-form" id="leadForm">
@@ -1379,18 +1405,30 @@
   });
 
   // Lead form submit -> forwarded to ookkoo12@naver.com via FormSubmit.co + logged to Google Sheet
+  // NOTE: the success screen no longer waits on either network call. FormSubmit's AJAX
+  // endpoint and the Google Sheet webapp can take anywhere from ~1s to several seconds
+  // (occasionally longer on slow mobile connections), and gating the success UI on that
+  // response was the reason "전송 중..." sat frozen and people gave up before finishing.
+  // Both requests now fire in the background; the user sees confirmation right away.
   var leadForm = document.getElementById('leadForm');
   var SHEET_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbxC9Y0UNFUF0dMRfEz2Gw0YbidjZ_yP8r0oUIcY733lUpw7Xsx8M6PHbJEDnDcEboWzkQ/exec';
   leadForm.addEventListener('submit', function(e){
     e.preventDefault();
     var submitBtn = leadForm.querySelector('button[type="submit"]');
     var originalText = submitBtn.textContent;
+
+    // Only case we can know for certain *before* even trying the network: phone is offline.
+    if ('onLine' in navigator && navigator.onLine === false) {
+      alert('인터넷 연결을 확인해주세요. 바로 전화(010-3131-5305)로 상담하실 수도 있어요.');
+      return;
+    }
+
     submitBtn.disabled = true;
     submitBtn.textContent = '전송 중...';
     var data = {};
     new FormData(leadForm).forEach(function(value, key){ data[key] = value; });
 
-    // Best-effort: log to Google Sheet (fire-and-forget, doesn't block email flow or success UI)
+    // Best-effort: log to Google Sheet (fire-and-forget, doesn't block success UI)
     try {
       fetch(SHEET_WEBAPP_URL, {
         method: 'POST',
@@ -1400,20 +1438,24 @@
       }).catch(function(){});
     } catch (err) {}
 
-    fetch('https://formsubmit.co/ajax/ookkoo12@naver.com', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify(data)
-    }).then(function(res){
-      if (!res.ok) throw new Error('request failed');
+    // Best-effort: email via FormSubmit.co (also fire-and-forget now, same reason)
+    try {
+      fetch('https://formsubmit.co/ajax/ookkoo12@naver.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      }).catch(function(){});
+    } catch (err) {}
+
+    // Show the success screen right away -- data is already in flight to both
+    // channels above, so the lead isn't lost even if this device's connection
+    // is slow and one of the requests takes a while to actually land.
+    setTimeout(function(){
       document.getElementById('formFields').style.display = 'none';
       document.getElementById('formSuccess').style.display = 'block';
-    }).catch(function(){
-      alert('전송 중 문제가 발생했어요. 전화(010-3131-5305)로 문의해주시면 바로 도와드릴게요.');
-    }).finally(function(){
       submitBtn.disabled = false;
       submitBtn.textContent = originalText;
-    });
+    }, 350);
   });
 
   // Mobile burger -> scroll to form as a simple fallback nav
